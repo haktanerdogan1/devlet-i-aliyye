@@ -1,0 +1,84 @@
+<title>UE5 Ajan Karargâhı</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: üstte ekip kartları, altında iki sütun: solda komut, sağda faaliyet defteri */
+:root{--bg:#EEF1EE;--surface:#FAFBFA;--ink:#16211F;--muted:#56635F;--line:#CCD5D0;--accent:#9B1B30;--petrol:#1F5C5A;--chip:#E2E8E4;
+  --ok:#2E7D4F;--warn:#8A6410;--bad:#A8261C;--idle:#56635F;
+  --display:"Marcellus",Georgia,serif;--body:"Source Sans 3",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111917;--surface:#18221F;--ink:#E6ECE8;--muted:#9AA8A2;--line:#2D3A36;--accent:#E8798A;--petrol:#6FC2BD;--chip:#24302C;--ok:#6FCF97;--warn:#E0B354;--bad:#F08A80;--idle:#9AA8A2;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111917;--surface:#18221F;--ink:#E6ECE8;--muted:#9AA8A2;--line:#2D3A36;--accent:#E8798A;--petrol:#6FC2BD;--chip:#24302C;--ok:#6FCF97;--warn:#E0B354;--bad:#F08A80;--idle:#9AA8A2;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 56px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font:400 clamp(26px,4.5vw,36px)/1.1 var(--display);margin:0}
+.sub{color:var(--muted);margin:6px 0 0;max-width:70ch}
+h2{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.ag{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.ag h3{font:400 19px/1.2 var(--display);margin:0}
+.ag .role{color:var(--muted);font-size:14px}
+.ag .sum{font-size:14px;flex:1}
+.meta{font:400 12px var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.pill{font:500 12px var(--mono);border:1px solid currentColor;border-radius:3px;padding:1px 7px;white-space:nowrap}
+.s-calisiyor{color:var(--ok)}.s-bosta{color:var(--idle)}.s-bekliyor,.s-alindi{color:var(--warn)}.s-hata{color:var(--bad)}.s-bitti{color:var(--ok)}
+.top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media (max-width:780px){.cols{grid-template-columns:minmax(0,1fr)}}
+textarea,select{font:16px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:9px 10px;width:100%;box-sizing:border-box}
+textarea{min-height:92px;resize:vertical}
+button{font:600 14px var(--body);color:var(--bg);background:var(--ink);border:1px solid var(--ink);border-radius:4px;padding:8px 14px;cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--line);padding:5px 10px;font-size:13px}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--petrol);outline-offset:2px}
+form{display:flex;flex-direction:column;gap:8px}.frow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.frow select{width:auto;flex:1;min-width:150px}
+.list{display:flex;flex-direction:column}
+.it{border-top:1px solid var(--line);padding:10px 0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.it p{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.reply{border-left:3px solid var(--petrol);padding-left:10px;color:var(--muted);font-size:15px}
+.empty{color:var(--muted);border:1px dashed var(--line);border-radius:4px;padding:14px;font-size:15px}
+#note{font-size:14px;color:var(--warn);min-height:1.4em}
+</style>
+<div class="wrap">
+  <header><h1>UE5 Ajan Karargâhı</h1><p class="sub">Devlet-i Aliyye'nin Unreal Engine 5 kodunu yazan ajan ekibi. Komut yazın; ajanlar bir sonraki çalışma turunda alır, yaptıklarını buraya yazar.</p></header>
+  <section><h2>Ekip</h2><div class="team" id="team"><div class="empty">Ekip bilgisi yükleniyor…</div></div></section>
+  <div class="cols">
+    <section><h2>Komut ver</h2>
+      <form id="f"><textarea id="cmd" placeholder="Örn: Tophane binasının kademe yükseltme mantığını C++ ile yaz ve nasıl deneneceğini anlat." required></textarea>
+        <div class="frow"><select id="to" aria-label="Kime"><option value="hepsi">Bütün ekibe</option></select><button id="send">Komutu gönder</button></div><div id="note"></div></form>
+      <h2 style="margin-top:20px">Komutlar</h2><div class="list" id="cmds"><div class="empty">Henüz komut yok. İlk komutunuz burada görünecek.</div></div>
+    </section>
+    <section><h2>Faaliyet defteri</h2><div class="list" id="log"><div class="empty">Ajanlar çalıştıkça yaptıkları işler buraya düşer.</div></div></section>
+  </div>
+</div>
+<script>
+const $=i=>document.getElementById(i),e=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ST={calisiyor:'çalışıyor',bosta:'boşta',bekliyor:'bekliyor',alindi:'alındı',bitti:'bitti',hata:'hata'};
+const when=t=>{if(!t)return'—';const d=new Date(t);return isNaN(d)?e(t):d.toLocaleString('tr-TR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})};
+const pill=s=>`<span class="pill s-${e(s)}">${ST[s]||e(s)}</span>`;
+let agents={},db=null,mcp=null;
+function drawTeam(){const a=Object.values(agents).sort((x,y)=>(x.order||0)-(y.order||0));
+  if(!a.length){$('team').innerHTML='<div class="empty">Ekip henüz kurulmadı.</div>';return;}
+  $('team').innerHTML=a.map(g=>`<article class="ag"><div class="top"><h3>${e(g.name)}</h3>${pill(g.status||'bosta')}</div><div class="role">${e(g.role)}</div>
+    <div class="sum">${e(g.summary||'Henüz rapor yok.')}</div><div class="meta">Son çalışma: ${when(g.last)}${g.branch?' · dal: '+e(g.branch):''}</div>
+    ${g.triggerId&&mcp?`<button class="ghost" data-run="${e(g.id)}">Şimdi çalıştır</button>`:''}</article>`).join('');
+  const cur=$('to').value;$('to').innerHTML='<option value="hepsi">Bütün ekibe</option>'+a.map(g=>`<option value="${e(g.id)}">${e(g.name)}</option>`).join('');$('to').value=cur||'hepsi';}
+function drawCmds(docs){if(!docs.length)return;$('cmds').innerHTML=docs.map(d=>{const c=d.data();return `<div class="it"><div class="top"><span class="meta">${when(c.ts)} · ${e(c.to==='hepsi'?'bütün ekip':(agents[c.to]?.name||c.to))}</span>${pill(c.status||'bekliyor')}</div><p>${e(c.text)}</p>${c.reply?`<p class="reply">${e(c.reply)}</p>`:''}</div>`}).join('');}
+function drawLog(docs){if(!docs.length)return;$('log').innerHTML=docs.map(d=>{const l=d.data();return `<div class="it"><span class="meta">${when(l.ts)} · ${e(agents[l.agent]?.name||l.agent)}${l.commit?' · '+e(l.commit):''}</span><p>${e(l.text)}</p></div>`}).join('');}
+const fail=m=>{$('note').textContent=m;};
+(async()=>{
+  const t=setTimeout(()=>{if(!db){$('team').innerHTML='<div class="empty">Veri deposuna bağlanılamadı. Sayfayı claude.ai içinde, oturum açmış olarak açın.</div>';$('send').disabled=true;}},10000);
+  db=await claude.use('db');if(!db)return;clearTimeout(t);
+  claude.use('mcp').then(m=>{mcp=m;drawTeam();});
+  db.collection('agents').onSnapshot(s=>{agents={};s.docs.forEach(d=>agents[d.id]={id:d.id,...d.data()});drawTeam();},x=>fail('Ekip okunamadı: '+x.code));
+  db.collection('commands').orderBy('ts','desc').limit(30).onSnapshot(s=>drawCmds(s.docs),x=>fail('Komutlar okunamadı: '+x.code));
+  db.collection('log').orderBy('ts','desc').limit(60).onSnapshot(s=>drawLog(s.docs),x=>fail('Defter okunamadı: '+x.code));
+})();
+$('f').addEventListener('submit',async ev=>{ev.preventDefault();const text=$('cmd').value.trim();if(!text||!db)return;$('send').disabled=true;
+  try{await db.collection('commands').add({text,to:$('to').value,ts:new Date().toISOString(),status:'bekliyor',reply:''});$('cmd').value='';fail('Komut kaydedildi. Ajan bir sonraki turda alır; hemen başlatmak için kartındaki "Şimdi çalıştır" düğmesini kullanın.');}
+  catch(x){fail(x.code==='not_granted'?'Bu sayfada yazma izniniz yok.':'Komut kaydedilemedi: '+(x.code||x.message));}
+  $('send').disabled=false;});
+$('team').addEventListener('click',async ev=>{const b=ev.target.closest('[data-run]');if(!b||!mcp)return;const g=agents[b.dataset.run];b.disabled=true;b.textContent='Başlatılıyor…';
+  try{await mcp.callTool('Claude Code Remote','fire_trigger',{trigger_id:g.triggerId});b.textContent='Başlatıldı';fail(g.name+' çalışmaya çağrıldı.');}
+  catch(x){b.disabled=false;b.textContent='Şimdi çalıştır';const c=x.code;
+   fail(c==='server_not_connected'?'Claude Code bağlayıcısı bu hesapta bağlı değil.':c==='approval_required'||c==='cancelled'?'Başlatmak için bağlayıcı izni gerekiyor; izin verilmedi.':c==='blocked_by_policy'||c==='not_in_manifest'?'Bu hesapta buradan başlatma kapalı. Ajan kendi saatinde çalışacak.':c==='needs_reauth'?'Bağlayıcı oturumu düşmüş; claude.ai ayarlarından yeniden bağlayın.':c==='server_unavailable'?'Sunucu şu an yanıt vermiyor; ajan başlamış olabilir, defteri kontrol edin.':'Başlatılamadı: '+(c||x.message));}});
+</script>

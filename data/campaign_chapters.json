@@ -1,0 +1,664 @@
+[
+  {
+    "Name": "C01_Prut",
+    "Era": "Era1",
+    "Title": "Prut’ta Çember",
+    "StartYear": 1711,
+    "EndYear": 1711,
+    "Locations": ["Prut nehri kıyısı (Falçi/Stănileşti çevresi, Boğdan)", "Bender (XII. Karl’ın karargâhı)"],
+    "HistoricalContext": "Poltava’dan (1709) sonra Osmanlı ülkesine sığınan İsveç Kralı XII. Karl meselesi ve Rusya’nın güneye yayılması 1710’da savaşa yol açtı. Sadrazam Baltacı Mehmed Paşa komutasındaki ordu, Kırım kuvvetleriyle birlikte Temmuz 1711’de Çar I. Petro’nun ordusunu Prut kıyısında kuşattı. Birkaç günlük çarpışmanın ardından mütareke görüşmeleri yapıldı ve Prut Antlaşması imzalandı: Azak’ın iadesi, bazı Rus kalelerinin yıkılması, Rusya’nın Lehistan işlerine karışmaması ve XII. Karl’ın ülkesine serbestçe dönmesi başlıca hükümlerdi. Petro’nun esir alınmaması sonradan sert biçimde tartışıldı; “zaferin bilerek kaçırıldığı” iddiası kesin bir hüküm olarak sunulmamalıdır.",
+    "PlayerRole": "Sadrazam karargâhına bağlı serasker vekili: kuşatma hattını, ordunun iaşesini ve divandaki antlaşma tartışmasını idare eder.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Boğdan geçitlerini ve Prut köprübaşlarını tut; Kırım süvarisini Rus ikmal yoluna sür."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Ordugâhı kur: erzak ambarı, su noktası, top metrisleri. Yeniçeri ve topçu ile Rus tabur hattını çevir."},
+      {"Id": "s3", "Layer": "AOE", "Text": "Rus kaçış koridorlarını kapat; yeniçeri hücumlarının kaybını ve cephane tüketimini dengele."},
+      {"Id": "s4", "Layer": "TPS", "Text": "Divan çadırında Baltacı Mehmed Paşa ile yüz yüze görüş ve antlaşma şartlarını öner."}
+    ],
+    "PrimaryObjectives": ["Kuşatma boyunca ordunun erzakını %40’ın üstünde tut", "Rus ordusunun çemberi yarmasını engelle", "Karar verilene kadar muharebe düzenini koru"],
+    "HistoricalOutcome": "Prut Antlaşması imzalandı; Rusya Azak’ı geri vermeyi kabul etti ve savaş sona erdi.",
+    "WhatIf": "Kuşatmayı sürdürüp Çar’ı teslime zorlamak açıkça ALTERNATİF hedeftir: yüksek ikmal riski, yeniçeri hoşnutsuzluğu ve Avusturya’nın müdahale ihtimali doğurur.",
+    "Events": [
+      {"Id": "prut_supply_crisis", "Trigger": "Supply < 30", "Text": "Ordugâhta erzak daralıyor; moral düşer."},
+      {"Id": "prut_council_terms", "Trigger": "Step s4", "Text": "Rus murahhası Şafirov şartları görüşmek üzere ordugâha gelir."},
+      {"Id": "prut_russian_breakout", "Trigger": "Kuşatma 30 günü aşarsa", "Text": "Rus ordusu gece yarma harekâtı dener."}
+    ],
+    "Outcomes": [
+      {"Id": "treaty", "Label": "Antlaşmayı imzala", "IsHistorical": true, "Effects": [{"Stat": "PP", "Value": 80}, {"Stat": "Stability", "Value": 4}, {"Stat": "Treasury", "Value": 15}]},
+      {"Id": "continue_siege", "Label": "Kuşatmayı sürdür", "IsHistorical": false, "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Supply", "Value": -10}, {"Stat": "Manpower", "Value": -800}, {"Stat": "ForeignPressure", "Value": 10}]}
+    ],
+    "NPCs": ["NPC01_BaltaciMehmedPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Prut Antlaşması”", "Url": "https://islamansiklopedisi.org.tr/prut-antlasmasi"}],
+    "AccuracyNotes": ["Antlaşma günleri kaynaklarda eski/yeni takvime göre farklı verilir; oyun içinde “Temmuz 1711” kullanılmalı.", "Baltacı–Katerina rüşvet/ilişki anlatıları rivayettir; oyunda gerçekmiş gibi sunulmamalı."]
+  },
+  {
+    "Name": "C02_LaleDevri",
+    "Era": "Era1",
+    "Title": "Lale Devri: Matbaa, Tulumba ve İsyan",
+    "StartYear": 1718,
+    "EndYear": 1730,
+    "Locations": ["İstanbul", "Kâğıthane / Sâdâbâd", "Müteferrika matbaası (Sultanselim semti)", "Etmeydanı"],
+    "HistoricalContext": "1718 Pasarofça Antlaşması’ndan sonra III. Ahmed ve Sadrazam Nevşehirli Damat İbrahim Paşa dönemi, sonradan “Lale Devri” diye adlandırıldı. Yirmisekiz Mehmed Çelebi 1720–1721’de Paris’e elçi gitti; 1720’de Davud Ağa’nın öncülüğünde Tulumbacı Ocağı kuruldu; İbrahim Müteferrika 1727’de izin alarak matbaayı kurdu ve ilk kitabı (Vankulu Lügati) 1729’da bastı. İran cephesindeki kayıplar, vergi yükü ve geçim sıkıntısı 1730’da Patrona Halil İsyanı’na zemin hazırladı. Dönem yalnızca saray eğlencesine indirgenmemeli; reformların kapsamı da abartılmamalıdır.",
+    "PlayerRole": "Sadaret kethüdası: başkentin iaşesini, yeni kurumları ve 1730 buhranını yönetir.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "İstanbul’da matbaa, kâğıt deposu ve tulumbacı koğuşunu inşa et."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Matbaada İbrahim Müteferrika ile görüş: kâğıt ve harf tedarikini çöz."},
+      {"Id": "s3", "Layer": "HOI4", "Text": "İran cephesi masrafı ile çarşı fiyatlarını dengele; esnaf arzuhallerini divana taşı."},
+      {"Id": "s4", "Layer": "TPS", "Text": "Eylül 1730: saray, kışla ve çarşı arasında Damat İbrahim Paşa ile son kararı ver."}
+    ],
+    "PrimaryObjectives": ["İstanbul’da istikrarı %50’nin üstünde tut", "Matbaanın en az üç eser basmasını sağla", "Sivillere karşı kitlesel şiddeti önle"],
+    "HistoricalOutcome": "Patrona Halil İsyanı (Eylül 1730) Damat İbrahim Paşa’nın ölümü ve III. Ahmed’in tahttan indirilmesiyle sonuçlandı; I. Mahmud tahta çıktı. Matbaa faaliyetini sürdürdü.",
+    "WhatIf": "Geçim ve vergi şikâyetleri erken yatıştırılırsa kriz hafifler; isyan “tek düğmeyle bastırılamaz”, yalnızca şiddeti ve sonucu değişir.",
+    "Events": [
+      {"Id": "paper_supply", "Trigger": "Step s2", "Text": "Matbaanın kâğıdı tükeniyor; ithal mi, yerli imalat mı?"},
+      {"Id": "price_petition", "Trigger": "Stability < 55", "Text": "Esnaf ve yeniçeri esnafı pahalılıktan şikâyetçi."},
+      {"Id": "patrona_uprising", "Trigger": "Yıl 1730", "Text": "Beyazıt’ta bir grup “şer’i davamız var” diye çarşıyı kapattırıyor."}
+    ],
+    "Outcomes": [
+      {"Id": "hear_petitions", "Label": "Şikâyetleri dinle, vergiyi hafiflet", "IsHistorical": false, "Effects": [{"Stat": "Stability", "Value": 10}, {"Stat": "Treasury", "Value": -20}, {"Stat": "ResearchSpeed", "Value": 5}]},
+      {"Id": "historical_fall", "Label": "Kriz saraya dayanır (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": -12}, {"Stat": "PP", "Value": -40}, {"Stat": "ResearchSpeed", "Value": 3}]},
+      {"Id": "military_only", "Label": "Yalnız kuvvetle bastır", "IsHistorical": false, "Effects": [{"Stat": "Stability", "Value": 3}, {"Stat": "WarSupport", "Value": -10}, {"Stat": "Manpower", "Value": -300}]}
+    ],
+    "NPCs": ["NPC02_IbrahimMuteferrika", "NPC03_DamatIbrahimPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Osmanlılar”", "Url": "https://islamansiklopedisi.org.tr/osmanlilar"}, {"Title": "TDV İslâm Ansiklopedisi, “Lâle Devri”, “İbrâhim Müteferrika”, “Patrona İsyanı” maddeleri", "Url": ""}],
+    "AccuracyNotes": ["“Lale Devri” adı döneme sonradan verilmiştir; oyun içi karakterler bu adı kullanmamalı.", "Müteferrika matbaası dinî olmayan eserler basmıştır."]
+  },
+  {
+    "Name": "C03_Humbarahane",
+    "Era": "Era1",
+    "Title": "Humbarahane ve Hendese",
+    "StartYear": 1734,
+    "EndYear": 1735,
+    "Locations": ["Üsküdar (Toptaşı/Ayazma çevresi)", "Tophane-i Âmire"],
+    "HistoricalContext": "Fransız asıllı Claude Alexandre de Bonneval, Osmanlı hizmetine girip Müslüman olarak Ahmed adını aldı ve I. Mahmud devrinde humbaracıbaşı oldu. Humbaracı Ocağı’nı maaşlı ve talimli bir yapıya kavuşturmaya çalıştı; 1734’te Üsküdar’da Hendesehâne açıldı. Kurum sonraki askerî mühendislik okullarının öncüllerinden sayılır; sürekliliği ocak muhalefeti ve kaynak sıkıntısıyla kesintiye uğradı.",
+    "PlayerRole": "Tophane nazırı vekili: ocağın bütçesini, talimini ve döküm standardını kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Üsküdar’da Humbarahane kışlası, derslik ve talim sahası inşa et."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Talim avlusunda Humbaracı Ahmed Paşa ile döküm ölçüsünü ve ders programını kararlaştır."},
+      {"Id": "s3", "Layer": "HOI4", "Text": "Yeni talim usulü ile ocak teamülleri arasında uzlaşma için PP harca."},
+      {"Id": "s4", "Layer": "AOE", "Text": "İlk humbaracı bölüğüyle deneme atışı yap."}
+    ],
+    "PrimaryObjectives": ["Talimli bir humbaracı bölüğü kur", "Döküm kusur oranını düşür", "Mali ve siyasi desteği sürdür"],
+    "HistoricalOutcome": "Maaşlı humbaracı teşkilatı ve bir hendese mektebi kuruldu; kurum uzun ömürlü olmadı.",
+    "WhatIf": "Kesintisiz finansman, II. Çağ’daki mühendishaneleri erken açan kalıcı topçu ve mühendislik bonusu verir.",
+    "Events": [
+      {"Id": "fund_hendesehane", "Trigger": "Step s1", "Text": "Hazine mektep tahsisatını soruyor."},
+      {"Id": "ocak_resistance", "Trigger": "Organization artışı > 10", "Text": "Ocak ağaları yeni talimi “gâvur icadı” diye şikâyet ediyor."},
+      {"Id": "trial_bombardment", "Trigger": "Step s4", "Text": "Padişah huzurunda humbara talimi."}
+    ],
+    "Outcomes": [
+      {"Id": "steady_budget", "Label": "Sürekli bütçe", "IsHistorical": false, "Effects": [{"Stat": "Treasury", "Value": -25}, {"Stat": "FactoryEfficiency", "Value": 5}, {"Stat": "Eq_Artillery", "Value": 120}]},
+      {"Id": "historical_fade", "Label": "Kurum zayıflar (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Eq_Artillery", "Value": 60}, {"Stat": "Organization", "Value": 3}]},
+      {"Id": "rushed_training", "Label": "Acele eğitim", "IsHistorical": false, "Effects": [{"Stat": "Eq_Artillery", "Value": 60}, {"Stat": "Organization", "Value": -8}]}
+    ],
+    "NPCs": ["NPC04_HumbaraciAhmedPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Mahmud I”", "Url": "https://islamansiklopedisi.org.tr/mahmud-i--osmanli"}],
+    "AccuracyNotes": ["Bonneval 1729’da Osmanlı ülkesine geldi; 1734 öncesi görevlerde NPC olarak görünmemeli."]
+  },
+  {
+    "Name": "C04_RagipPasaSulhu",
+    "Era": "Era1",
+    "Title": "Sulhun Hesabı: Koca Ragıp Paşa",
+    "StartYear": 1757,
+    "EndYear": 1763,
+    "Locations": ["Babıâli", "Ragıp Paşa Kütüphanesi (Laleli/Koska)"],
+    "HistoricalContext": "Koca Ragıp Mehmed Paşa 1757’den 1763’teki ölümüne kadar sadrazamlık yaptı. Avrupa Yedi Yıl Savaşı’yla (1756–1763) meşgulken Osmanlı Devleti’ni savaşın dışında tuttu; maliyeyi düzeltmeye çalıştı ve 1761’de Prusya ile bir dostluk ve ticaret antlaşması imzalandı. Şair ve kitap dostu bir devlet adamıydı; adını taşıyan kütüphane 1763’te tamamlandı.",
+    "PlayerRole": "Reisülküttap kalemi mensubu: elçilerle müzakereleri ve hazine defterini yürütür.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Yedi Yıl Savaşı’nda tarafsızlık kararını koru; Prusya, Avusturya ve Rusya elçilerinin tekliflerini değerlendir."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Babıâli’de Ragıp Paşa ile hazine ve sulh siyasetini görüş."},
+      {"Id": "s3", "Layer": "AOE", "Text": "İstanbul’un iaşesi için ambar, iskele ve su yollarını onar."}
+    ],
+    "PrimaryObjectives": ["Altı yıl boyunca büyük savaşa girme", "Hazineyi artıya geçir", "Sınır kalelerinin bakımını ihmal etme"],
+    "HistoricalOutcome": "Osmanlı Devleti savaşa girmedi; uzun barış dönemi 1768’e kadar sürdü. Barış yıllarında ordu ıslahatı sınırlı kaldı ve 1768–1774 savaşı ağır yenilgiyle sonuçlandı.",
+    "WhatIf": "Barış yıllarını topçu ve donanma ıslahına ayırmak 1768 savaşına daha hazırlıklı girilmesini sağlar; Prusya ile askerî ittifak ise erken bir Rus/Avusturya savaşını tetikleyebilir.",
+    "Events": [
+      {"Id": "prussian_offer", "Trigger": "Yıl 1761", "Text": "Prusya elçisi Rexin ittifak teklif ediyor."},
+      {"Id": "treasury_audit", "Trigger": "Step s2", "Text": "Malikâne gelirleri deftere geçirilecek."}
+    ],
+    "Outcomes": [
+      {"Id": "peace_and_treasury", "Label": "Sulh ve mali disiplin", "IsHistorical": true, "Effects": [{"Stat": "Treasury", "Value": 30}, {"Stat": "Stability", "Value": 6}, {"Stat": "WarSupport", "Value": -4}]},
+      {"Id": "peace_and_reform", "Label": "Sulh içinde ıslahat", "IsHistorical": false, "Effects": [{"Stat": "Treasury", "Value": -15}, {"Stat": "Eq_Artillery", "Value": 160}, {"Stat": "Organization", "Value": 5}, {"Stat": "PP", "Value": -30}]},
+      {"Id": "prussian_alliance", "Label": "Prusya ile askerî ittifak", "IsHistorical": false, "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "ForeignPressure", "Value": 20}, {"Stat": "Stability", "Value": -5}]}
+    ],
+    "NPCs": ["NPC05_KocaRagipPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Râgıb Paşa” maddesi", "Url": ""}],
+    "AccuracyNotes": ["1761 antlaşması dostluk/ticaret antlaşmasıdır, askerî ittifak değildir."]
+  },
+  {
+    "Name": "C05_CesmeVeLimni",
+    "Era": "Era1",
+    "Title": "Çeşme’nin Külü, Limni’nin Gazisi",
+    "StartYear": 1770,
+    "EndYear": 1789,
+    "Locations": ["Çeşme limanı", "Limni adası (Mondros)", "Tersane-i Âmire, Haliç"],
+    "HistoricalContext": "1768–1774 Osmanlı-Rus Savaşı’nda Baltık’tan gelen Rus filosu Temmuz 1770’te Çeşme’de Osmanlı donanmasını yaktı. Çarpışmalarda öne çıkan Cezayirli Hasan Bey, aynı yıl Rusların kuşattığı Limni’ye gönüllülerle çıkarma yaparak kuşatmayı kaldırttı; “Gazi” unvanını aldı ve sonraki yıllarda uzun süre kaptan-ı deryalık yaptı. Tersane’yi ve kalyoncu teşkilatını düzenledi, kalyoncu kışlasını yaptırdı; 1770’lerde Tersane’de açılan hendese/mühendislik öğretimi onun dönemine rastlar. 1790’da sadrazam ve serdar iken Şumnu’da öldü.",
+    "PlayerRole": "Donanma kaptanı: bozgundan sonra filoyu toparlar, Limni’yi kurtarır, Tersane’yi yeniden kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Çeşme’de yanan filodan kurtarılabilen mürettebatı ve topları topla (savunma/geri çekilme görevi)."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Limni’ye hafif teknelerle gece çıkarması yap; Mondros kalesi kuşatmasını kaldır."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Tersane-i Âmire’de Cezayirli Gazi Hasan Paşa ile kalyoncu kışlası ve gemi inşa programını kararlaştır."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Ege ve Karadeniz’de devriye bölgelerini belirle; kereste, kendir ve bakır tedarikini bağla."}
+    ],
+    "PrimaryObjectives": ["Limni’yi geri al", "Sürekli (kışın dağıtılmayan) kalyoncu kadrosu kur", "Tersane’de en az iki kalyon inşa et"],
+    "HistoricalOutcome": "Çeşme felaketi geri alınmadı; Limni kurtarıldı. 1774 Küçük Kaynarca Antlaşması ağır şartlarla imzalandı. Donanma sonraki yirmi yılda yeniden inşa edildi.",
+    "WhatIf": "Çeşme’yi “kazanma” görevi yoktur. Alternatif dal, filonun dar limana çekilmek yerine açık denizde kalmasıdır: kayıplar azalır, fakat zafer garantisi vermez.",
+    "Events": [
+      {"Id": "fireships_at_cesme", "Trigger": "Step s1", "Text": "Rus ateş gemileri limana giriyor."},
+      {"Id": "limni_volunteers", "Trigger": "Step s2", "Text": "İstanbul’dan toplanan gönüllüler iskelede bekliyor."},
+      {"Id": "kalyoncu_barracks", "Trigger": "Step s3", "Text": "Kalyoncuların kışın dağılmaması için kışla isteniyor."}
+    ],
+    "Outcomes": [
+      {"Id": "limni_relieved", "Label": "Limni kurtarılır, Tersane ıslah edilir", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "NavalReadiness", "Value": 12}, {"Stat": "Treasury", "Value": -35}, {"Stat": "Eq_Naval", "Value": 2}]},
+      {"Id": "open_sea_doctrine", "Label": "Açık deniz tertibi (alternatif)", "IsHistorical": false, "Effects": [{"Stat": "NavalReadiness", "Value": 18}, {"Stat": "Eq_Naval", "Value": 4}, {"Stat": "Manpower", "Value": -400}]}
+    ],
+    "NPCs": ["NPC06_CezayirliGaziHasanPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Cezayirli Gazi Hasan Paşa” ve “Çeşme Vak‘ası” maddeleri", "Url": ""}],
+    "AccuracyNotes": ["Paşa’nın yanında aslan gezdirdiği anlatısı yaygın bir rivayettir; görsel olarak kullanılacaksa oyun içinde “rivayet” diye işaretlenmeli.", "Kaptan-ı deryalık tarihleri (ilk tayin, azil ve yeniden tayin) TDV maddesinden teyit edilmeli."]
+  },
+  {
+    "Name": "C06_SuratTopculari",
+    "Era": "Era1",
+    "Title": "Sürat Topçuları ve Boğaz Tahkimi",
+    "StartYear": 1770,
+    "EndYear": 1776,
+    "Locations": ["Çanakkale Boğazı tabyaları", "Tophane-i Âmire", "Hasköy dökümhanesi"],
+    "HistoricalContext": "Çeşme bozgunundan sonra Rus filosunun Boğaz’a yönelmesi ihtimali üzerine Macar asıllı Fransız subayı François Baron de Tott, III. Mustafa tarafından Çanakkale tahkimatını güçlendirmekle görevlendirildi. Ardından seri ateşli sahra topçusu yetiştirmek üzere Sürat Topçuları Ocağı kuruldu, yeni döküm usulleri ve duba köprüler denendi. De Tott 1776’da İstanbul’dan ayrıldı; hatıratı kendi rolünü büyüttüğü için ihtiyatla okunmalıdır.",
+    "PlayerRole": "Boğaz muhafızı: tabyaları onarır, seri topçu müfrezesini kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Çanakkale tabyalarını keşfet; top ve mühimmat dağılımını çıkar."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Boğazın iki yakasına yeni tabya ve cephanelik inşa et."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Atış sahasında Baron de Tott ile sürat topçusu talimini ve döküm kalıbını kararlaştır."},
+      {"Id": "s4", "Layer": "AOE", "Text": "Talim atışında menzil, atış hızı ve ikmal süresini ölç."}
+    ],
+    "PrimaryObjectives": ["Boğaz tahkimat seviyesini yükselt", "Topçu nakil süresini azalt", "Mühimmat standardını ve emniyetini sağla"],
+    "HistoricalOutcome": "Boğaz tahkimi ve topçu yenileme çabaları sürdü; Rus filosu Boğaz’ı zorlamadı. Sürat Topçuları Ocağı sonraki topçu ıslahatının çekirdeklerinden oldu.",
+    "WhatIf": "Rus filosunun Boğaz’a girme teşebbüsü bir savunma senaryosudur; Çeşme’yi geriye dönük kazanma görevi değildir.",
+    "Events": [
+      {"Id": "russian_squadron_sighted", "Trigger": "FortLevel < 2", "Text": "Bozcaada açıklarında Rus yelkenleri görüldü."},
+      {"Id": "casting_failure", "Trigger": "Step s3", "Text": "Yeni kalıpta dökülen top çatladı."}
+    ],
+    "Outcomes": [
+      {"Id": "forts", "Label": "Tabyalara öncelik", "IsHistorical": true, "Effects": [{"Stat": "FortLevel", "Value": 1}, {"Stat": "Eq_Artillery", "Value": -80}]},
+      {"Id": "trained_gunners", "Label": "Sürat topçusu ocağı", "IsHistorical": true, "Effects": [{"Stat": "Organization", "Value": 8}, {"Stat": "Treasury", "Value": -15}]}
+    ],
+    "NPCs": ["NPC07_BaronDeTott"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Baron de Tott”", "Url": "https://islamansiklopedisi.org.tr/baron-de-tott"}],
+    "AccuracyNotes": ["Bu çağda demiryolu, telgraf, fabrika gibi terimler kullanılmamalı."]
+  },
+  {
+    "Name": "C07_NizamiCedid",
+    "Era": "Era2",
+    "Title": "Nizam-ı Cedid: Talim ve Hazine",
+    "StartYear": 1793,
+    "EndYear": 1807,
+    "Locations": ["Levent Çiftliği kışlası", "Üsküdar – Selimiye Kışlası", "Mühendishâne-i Berrî-i Hümâyun (Hasköy)", "Etmeydanı"],
+    "HistoricalContext": "III. Selim’in Nizam-ı Cedid’i yalnız talimli bir ordu değil, askerî, malî ve idarî düzenlemelerin bütünüydü. 1793’te İrad-ı Cedid hazinesi kuruldu; Levent Çiftliği’nde ve sonra Üsküdar’da yeni kışlalar yapıldı; 1795’te Mühendishâne-i Berrî-i Hümâyun açıldı. Yeni birlikler 1799’da Akkâ’da Cezzar Ahmed Paşa’nın yanında Napolyon’a karşı savaştı. Mayıs 1807’de Boğaz yamaklarının Kabakçı Mustafa önderliğindeki isyanı, saray içi muhalefetle birleşerek III. Selim’in tahttan indirilmesine yol açtı; talimli birlikler isyancılara karşı kullanılmadı.",
+    "PlayerRole": "Nizam-ı Cedid ocağı nazırı: birlikleri eğitir, hazineyi ayakta tutar, 1807 krizinde emir-komutayı işletir.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Levent’te kışla ve talim meydanı kur; üç Nizam-ı Cedid bölüğü yetiştir."},
+      {"Id": "s2", "Layer": "HOI4", "Text": "İrad-ı Cedid gelirlerini (zecriye, pamuk, yapağı rüsumu) tahsis et; maaş gecikmesini önle."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Levent talim sahasında III. Selim ile görüş."},
+      {"Id": "s4", "Layer": "AOE", "Text": "Mayıs 1807: Rumelikavağı’ndan yürüyen yamaklara karşı başkentin düzenini koru."}
+    ],
+    "PrimaryObjectives": ["Üç talimli birlik kur", "Maaş gecikmesini önle", "Başkentte düzeni korurken sivil kaybı sınırlı tut"],
+    "HistoricalOutcome": "Reform hareketi isyan ve saray darbesiyle kesintiye uğradı; Nizam-ı Cedid ocağı dağıtıldı.",
+    "WhatIf": "“Nizam-ı Cedid Zaferi” dalı alternatif tarihtir: başarı koşulu yalnız askerî güç değil; sadakat, mühimmat ve siyasi meşruiyetin birlikte sağlanmasıdır.",
+    "Events": [
+      {"Id": "acre_1799", "Trigger": "Yıl 1799", "Text": "Akkâ’dan haber: Nizam-ı Cedid neferleri surlarda Fransız hücumunu karşıladı."},
+      {"Id": "edirne_incident_1806", "Trigger": "Yıl 1806", "Text": "Rumeli âyanı yeni askerin Edirne’ye girmesine karşı koyuyor."},
+      {"Id": "kabakci_revolt", "Trigger": "Yıl 1807", "Text": "Yamaklar yeni üniformayı giymeyi reddetti; bir subay öldürüldü."}
+    ],
+    "Outcomes": [
+      {"Id": "historical_deposition", "Label": "Birlikler kışlada tutulur (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": -10}, {"Stat": "Organization", "Value": -12}, {"Stat": "PP", "Value": -50}]},
+      {"Id": "political_compromise", "Label": "Siyasi uzlaşma", "IsHistorical": false, "Effects": [{"Stat": "Stability", "Value": 7}, {"Stat": "PP", "Value": -35}]},
+      {"Id": "use_force", "Label": "Talimli birliklerle bastır (alternatif)", "IsHistorical": false, "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Stability", "Value": -12}, {"Stat": "CivilianCasualtyRisk", "Value": 20}]}
+    ],
+    "NPCs": ["NPC08_SelimIII"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Nizâm-ı Cedîd”", "Url": "https://islamansiklopedisi.org.tr/nizam-i-cedid"}, {"Title": "TDV İslâm Ansiklopedisi, “Selim III”", "Url": "https://islamansiklopedisi.org.tr/selim-iii"}],
+    "AccuracyNotes": ["İlk Selimiye Kışlası ahşaptı; bugünkü kâgir yapı II. Mahmud ve Abdülmecid devirlerinde tamamlandı. 3D modelde dönem varyantı kullanılmalı."]
+  },
+  {
+    "Name": "C08_Alemdar",
+    "Era": "Era2",
+    "Title": "Alemdar’ın İstanbul’a Yürüyüşü",
+    "StartYear": 1808,
+    "EndYear": 1808,
+    "Locations": ["Rusçuk", "Edirne–İstanbul yolu", "Topkapı Sarayı", "Babıâli"],
+    "HistoricalContext": "Rusçuk âyanı Alemdar Mustafa Paşa, “Rusçuk Yârânı” ile birlikte III. Selim’i yeniden tahta çıkarmak üzere Temmuz 1808’de İstanbul’a yürüdü. Saraya girildiği sırada III. Selim öldürüldü; IV. Mustafa tahttan indirildi, II. Mahmud tahta çıktı. Sadrazam olan Alemdar, âyanla Sened-i İttifak’ı (Ekim 1808) imzalattı ve Sekban-ı Cedid’i kurdu. Kasım 1808’de yeniçeri ayaklanmasında Babıâli’de kuşatıldı ve cephaneliğin infilakıyla öldü.",
+    "PlayerRole": "Rusçuk Yârânı’ndan bir kumandan: yürüyüşü, taht değişikliğini ve yeni ocağın kuruluşunu yönetir.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Rusçuk’tan İstanbul’a yürüyüşün menzil ve iaşesini düzenle."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Saray kapısına ulaş; taht değişikliğinde saray emniyetini sağla."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Babıâli avlusunda Alemdar Mustafa Paşa ile Sekban-ı Cedid’in kuruluşunu görüş."},
+      {"Id": "s4", "Layer": "AOE", "Text": "Kasım 1808: Babıâli ve kışlalar çevresindeki ayaklanmayı karşıla."}
+    ],
+    "PrimaryObjectives": ["Devlet merkezinin komuta bütünlüğünü koru", "Kışlalardaki çatışmayı sınırlı tut", "Yeni kuvvetin hukukî statüsünü belirle"],
+    "HistoricalOutcome": "Alemdar ayaklanmada öldü; Sekban-ı Cedid kaldırıldı. II. Mahmud tahtta kaldı.",
+    "WhatIf": "Rumeli kuvvetleri erken terhis edilmez ve garnizon disiplini korunursa reform ocağı yaşayabilir; bu tarihsel sonuç değildir.",
+    "Events": [
+      {"Id": "sened_i_ittifak", "Trigger": "Ekim 1808", "Text": "Âyan Kâğıthane’de toplandı; senet imzaya hazır."},
+      {"Id": "babiali_fire", "Trigger": "Step s4", "Text": "Yeniçeriler Babıâli’yi ateşe verdi."}
+    ],
+    "Outcomes": [
+      {"Id": "historical_death", "Label": "Babıâli düşer (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": -15}, {"Stat": "Organization", "Value": -8}, {"Stat": "Manpower", "Value": -600}]},
+      {"Id": "amnesty", "Label": "Af ve müzakere", "IsHistorical": false, "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "PP", "Value": -25}]},
+      {"Id": "purge", "Label": "Sert tasfiye", "IsHistorical": false, "Effects": [{"Stat": "Organization", "Value": 5}, {"Stat": "Stability", "Value": -15}, {"Stat": "Manpower", "Value": -500}]}
+    ],
+    "NPCs": ["NPC09_AlemdarMustafaPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Selim III”", "Url": "https://islamansiklopedisi.org.tr/selim-iii"}, {"Title": "TDV İslâm Ansiklopedisi, “Mahmud II”", "Url": "https://islamansiklopedisi.org.tr/mahmud-ii"}],
+    "AccuracyNotes": []
+  },
+  {
+    "Name": "C09_VakaiHayriye",
+    "Era": "Era2",
+    "Title": "Vaka-i Hayriye ve Yeni Ordu",
+    "StartYear": 1826,
+    "EndYear": 1839,
+    "Locations": ["Etmeydanı", "Sultanahmet Meydanı", "Ağa Kapısı → Serasker Kapısı (Beyazıt)", "Davutpaşa ve Selimiye kışlaları", "Maçka – Mekteb-i Harbiye"],
+    "HistoricalContext": "II. Mahmud, talimli “Eşkinci” ocağının kurulmasına karşı ayaklanan Yeniçeri Ocağı’nı Haziran 1826’da kaldırdı; olay resmî tarih yazımında Vaka-i Hayriye diye anılır ve büyük şiddetle gerçekleşmiştir. Yerine Asâkir-i Mansûre-i Muhammediyye kuruldu; Ağa Kapısı Serasker Kapısı’na dönüştü. Ardından Tıbhâne (1827), Mekteb-i Harbiye (1834) ve Redif teşkilatı (1834) kuruldu; donanmaya buharlı gemiler girmeye başladı.",
+    "PlayerRole": "Seraskerlik erkânından bir zabit: yeni ordunun ilk taburlarını, kışlalarını ve mekteplerini kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Sancak-ı Şerif etrafında toplanan kuvvetle Etmeydanı kışlalarını topçu ateşi altına al."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Serasker Kapısı’nda II. Mahmud’un huzurunda yeni ordunun kuruluş tertibini arz et."},
+      {"Id": "s3", "Layer": "AOE", "Text": "Kışla, Tıbhâne ve Mekteb-i Harbiye inşa et; ilk Mansûre taburlarını teşkil et."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Taşraya ilga fermanını ulaştır; Redif taburlarını vilayetlere dağıt."}
+    ],
+    "PrimaryObjectives": ["Komuta zincirini kur", "Yeni askerin maaşını güvenceye al", "Başkentte yangın ve yağmayı önle"],
+    "HistoricalOutcome": "Yeniçeri Ocağı kaldırıldı ve yeni merkez ordusu kuruldu. Tecrübesiz yeni ordu 1828–1829 Rus savaşında ve Mısır meselesinde ağır sınavlar verdi.",
+    "WhatIf": "Erken subay eğitimi ve taşra ikmali yeni ordunun etkinliğini yükseltir. 1826’nın şiddeti ve Bektaşî tekkelerine yönelik tasfiyeler “temiz zafer” gibi gösterilmemelidir.",
+    "Events": [
+      {"Id": "eskinci_drill", "Trigger": "Haziran 1826", "Text": "Eşkinci neferleri Etmeydanı’nda ilk talime çıktı; kazanlar kaldırıldı."},
+      {"Id": "provincial_orders", "Trigger": "Step s4", "Text": "Vilayetlerdeki yeniçeri ortaları fermanı bekliyor."},
+      {"Id": "first_steamship", "Trigger": "Yıl 1828", "Text": "Tersane’ye ilk buharlı gemi alındı."}
+    ],
+    "Outcomes": [
+      {"Id": "institutional", "Label": "Kurumsal geçiş", "IsHistorical": true, "Effects": [{"Stat": "PP", "Value": -40}, {"Stat": "Treasury", "Value": -30}, {"Stat": "Manpower", "Value": 1500}, {"Stat": "Organization", "Value": 10}]},
+      {"Id": "hasty_levy", "Label": "Düzensiz seferberlik", "IsHistorical": false, "Effects": [{"Stat": "Manpower", "Value": 2500}, {"Stat": "Stability", "Value": -15}]}
+    ],
+    "NPCs": ["NPC10_MahmudII"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Asâkir-i Mansûre-i Muhammediyye”", "Url": "https://islamansiklopedisi.org.tr/asakir-i-mansure-i-muhammediyye"}],
+    "AccuracyNotes": ["Fes, Mansûre ordusunun başlığı olarak 1827–1829’da benimsendi; 1826 sahnelerinde askerler fesli gösterilmemeli.", "İlk buharlı geminin adı ve alım yılı (genellikle “Sürat”, 1820’lerin sonu) kaynakla teyit edilmeli."]
+  },
+  {
+    "Name": "C10_ZeytinburnuVeKirim",
+    "Era": "Era2",
+    "Title": "Zeytinburnu’nun Ocakları, Kırım’ın Telleri",
+    "StartYear": 1843,
+    "EndYear": 1856,
+    "Locations": ["Zeytinburnu Demir Fabrikası", "Tophane-i Âmire", "İstanbul–Edirne–Şumnu telgraf hattı", "Tuna hattı: Silistre, Kalafat", "Sinop", "Kars", "Kırım: Gözleve, Sivastopol"],
+    "HistoricalContext": "1840’larda Zeytinburnu–Bakırköy sahilinde devlet eliyle demir, dökümhane ve dokuma tesisleri kuruldu; yönetim, usta ve makine bakımından dışa bağımlılık süreklilik sorunu yarattı. Ekim 1853’te başlayan Kırım Harbi’nde Ömer Lütfi Paşa Tuna’da başarılar kazandı; 30 Kasım 1853’te Sinop’ta bir Osmanlı filosu yok edildi; 1854’te Silistre savunuldu, 1855’te Kars uzun kuşatmadan sonra düştü. Savaş sırasında telgraf Osmanlı ülkesine girdi (İstanbul–Edirne–Şumnu hattı 1855) ve 1854’te ilk dış borç alındı. Savaş 1856 Paris Antlaşması’yla bitti.",
+    "PlayerRole": "Tophane müşirliği levazım reisi: fabrikayı, telgrafı ve cephe ikmalini eşgüdümler.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Zeytinburnu’nda dökümhane, haddehane ve iskele inşa et; kömür ve cevher yolunu bağla."},
+      {"Id": "s2", "Layer": "HOI4", "Text": "Tuna ve Kafkas cephelerine erzak/mühimmat yönlendir; Sinop baskını sonrası Karadeniz ikmalini yeniden kur."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Tuna karargâhında Ömer Lütfi Paşa ile telgraf hattı ve ikmal önceliğini görüş."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Müttefik komuta ve dış borç seçeneklerini dengele."}
+    ],
+    "PrimaryObjectives": ["Cepheye zamanında mühimmat ulaştır", "Telgraf hattını faal tut", "Fabrikanın bakım/üretim kapasitesini sürdürülebilir kıl"],
+    "HistoricalOutcome": "Osmanlı Devleti, İngiltere, Fransa ve Sardunya ile ittifak içinde savaşı kazanan tarafta yer aldı; Paris Antlaşması Karadeniz’i tarafsızlaştırdı. Dış borçlanma dönemi başladı.",
+    "WhatIf": "Yerli üretim verimi artırılabilir; fakat tek bir fabrika kısa sürede bütün modern silah ihtiyacını karşılayamaz. “Zeytinburnu & Tophane Ağır Sanayi Hamlesi” odak dalının ön koşulu bu görevdir.",
+    "Events": [
+      {"Id": "sinop_raid", "Trigger": "Kasım 1853", "Text": "TELGRAF YOK, ULAK VAR: Sinop limanındaki filo yandı."},
+      {"Id": "first_foreign_loan", "Trigger": "Treasury < 20", "Text": "Londra sarrafları istikraz teklif ediyor."},
+      {"Id": "telegraph_line_open", "Trigger": "Yıl 1855", "Text": "Şumnu’dan İstanbul’a ilk tel çekildi."},
+      {"Id": "kars_siege", "Trigger": "Yıl 1855", "Text": "Kars garnizonu açlık çekiyor; yardım kuvveti gecikti."}
+    ],
+    "Outcomes": [
+      {"Id": "line_security", "Label": "Hat güvenliği", "IsHistorical": true, "Effects": [{"Stat": "Supply", "Value": 12}, {"Stat": "PP", "Value": 20}]},
+      {"Id": "factory_investment", "Label": "Fabrika yatırımı", "IsHistorical": false, "Effects": [{"Stat": "Treasury", "Value": -45}, {"Stat": "FactoryEfficiency", "Value": 12}]},
+      {"Id": "foreign_purchase", "Label": "Dış alım ve istikraz", "IsHistorical": true, "Effects": [{"Stat": "Eq_Infantry", "Value": 500}, {"Stat": "Treasury", "Value": -60}, {"Stat": "Debt", "Value": 20}]}
+    ],
+    "NPCs": ["NPC11_OmerLutfiPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Hazîne-i Hâssa”", "Url": "https://islamansiklopedisi.org.tr/hazine-i-hassa"}, {"Title": "TDV İslâm Ansiklopedisi, “Tanzimat”", "Url": "https://islamansiklopedisi.org.tr/tanzimat"}, {"Title": "TDV İslâm Ansiklopedisi, “Kırım Savaşı” maddesi", "Url": ""}],
+    "AccuracyNotes": ["Zeytinburnu tesisleri “silah fabrikası” olarak kurulmadı; demir/döküm tesisidir. Bina adı oyunda “Zeytinburnu Demir Fabrikası” olmalı; silah üretimi yükseltme olarak açılabilir.", "Kırım cephesinde demiryolunu (Balaklava hattı) İngilizler döşedi; Osmanlı demiryolu değildir."]
+  },
+  {
+    "Name": "C11_ZirhliDonanma",
+    "Era": "Era3",
+    "Title": "Zırhlı Donanma, Ağır Borç",
+    "StartYear": 1861,
+    "EndYear": 1876,
+    "Locations": ["Haliç – Tersane-i Âmire", "Dolmabahçe önü demir yeri", "Londra ve Fransa tezgâhları (sipariş ekranı)"],
+    "HistoricalContext": "Sultan Abdülaziz döneminde donanmaya büyük yatırım yapıldı; İngiliz ve Fransız tezgâhlarına zırhlılar ısmarlandı, bir kısmı Tersane-i Âmire’de inşa edildi. Saltanatın sonunda Osmanlı donanması zırhlı gemi sayısı bakımından dünyanın önde gelen filoları arasındaydı. Ancak yetişmiş mürettebat, bakım ve kömür giderleri karşılanamadı; Ekim 1875’te devlet borç faizlerini ödeyemeyeceğini ilan etti. İngiliz bahriyeli Hobart Paşa 1860’ların sonundan itibaren Osmanlı donanmasında görev yaptı.",
+    "PlayerRole": "Bahriye Nezareti erkânı: sipariş, tersane ve bütçe arasında denge kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Zırhlı siparişlerini seç: yurtdışı tezgâh mı, Haliç’te inşa mı?"},
+      {"Id": "s2", "Layer": "AOE", "Text": "Tersane’de kuru havuz, kazan atölyesi ve kömür deposu inşa et."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Tersane rıhtımında Hobart Paşa ile mürettebat talimini ve filo hazırlığını görüş."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "1875: bütçe heyetine bakım ve borç yükünü raporla."}
+    ],
+    "PrimaryObjectives": ["Hazır gemi oranını yükselt", "Makine ve topçu mürettebatını eğit", "Bütçeyi çökertmeden filoyu faal tut"],
+    "HistoricalOutcome": "Büyük bir zırhlı filosu kuruldu; malî kriz ve bakım sorunları sürdürülebilirliği baltaladı. II. Abdülhamid döneminde filo büyük ölçüde Haliç’te atıl kaldı.",
+    "WhatIf": "Daha küçük fakat bakımlı filo seçeneği, sayı yerine hazır olma oranına odaklanır ve borcu sınırlar.",
+    "Events": [
+      {"Id": "mesudiye_launch", "Trigger": "Yıl 1874", "Text": "Londra’dan haber: Mesudiye zırhlısı denize indirildi."},
+      {"Id": "default_1875", "Trigger": "Debt > 60", "Text": "Hazine faiz ödemelerini yarıya indiriyor."}
+    ],
+    "Outcomes": [
+      {"Id": "big_fleet", "Label": "Büyük filo (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Eq_Naval", "Value": 4}, {"Stat": "Debt", "Value": 35}, {"Stat": "Stability", "Value": -6}, {"Stat": "NavalReadiness", "Value": -5}]},
+      {"Id": "maintained_fleet", "Label": "Küçük, bakımlı filo", "IsHistorical": false, "Effects": [{"Stat": "Eq_Naval", "Value": 2}, {"Stat": "NavalReadiness", "Value": 15}, {"Stat": "Treasury", "Value": -35}]}
+    ],
+    "NPCs": ["NPC12_HobartPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Abdülaziz”", "Url": "https://islamansiklopedisi.org.tr/abdulaziz"}],
+    "AccuracyNotes": ["“Dünyanın üçüncü büyük donanması” ifadesi yaygındır ama ölçüte göre değişir; oyun metninde “önde gelen filolardan” denmeli."]
+  },
+  {
+    "Name": "C12_PlevneVeAziziye",
+    "Era": "Era3",
+    "Title": "Tuna’da Düğüm: Plevne ve Aziziye",
+    "StartYear": 1877,
+    "EndYear": 1878,
+    "Locations": ["Plevne tabyaları", "Şıpka Geçidi", "Erzurum – Aziziye ve Mecidiye tabyaları", "Gedikler / Alacadağ"],
+    "HistoricalContext": "Nisan 1877’de başlayan 93 Harbi’nde Gazi Osman Paşa, Temmuz’dan itibaren Plevne’yi savundu; Temmuz ve Eylül 1877’deki üç büyük Rus-Romen taarruzunu püskürttü. Tam kuşatma ve açlık üzerine 10 Aralık 1877’de yarma harekâtını denedi, yaralandı ve teslim oldu. Doğuda Ahmed Muhtar Paşa, Gedikler ve Yahniler’deki başarılarıyla “Gazi” unvanını aldı; Alacadağ yenilgisinden sonra Erzurum’a çekildi. Kasım 1877’de Aziziye tabyalarına yapılan gece baskını, Erzurum halkının da katıldığı karşı hücumla geri atıldı; Nene Hatun bu direnişin simgesidir. Savaş Ayastefanos ve Berlin (1878) antlaşmalarıyla ağır kayıplarla bitti.",
+    "PlayerRole": "Plevne’de bir fırka kumandanı; ikinci harita kolunda Erzurum müdafaasında erkân-ı harp.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Plevne çevresinde toprak tabyaları ve siperleri inşa et; üç taarruzu karşıla."},
+      {"Id": "s2", "Layer": "HOI4", "Text": "Orhaniye–Plevne ikmal kolunu açık tut; erzakı bölük bazında paylaştır."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Plevne karargâhında Gazi Osman Paşa ile yarma/savunma kararını görüş."},
+      {"Id": "s4", "Layer": "AOE", "Text": "Erzurum kolu: Aziziye tabyasına gece baskınını şehir halkıyla birlikte geri at."},
+      {"Id": "s5", "Layer": "TPS", "Text": "Erzurum’da Gazi Ahmed Muhtar Paşa ve Aziziye’de Nene Hatun ile konuş."}
+    ],
+    "PrimaryObjectives": ["Savunma birliklerini gereksiz kayıptan koru", "Sivil halk için tahliye/iaşe düzeni kur", "Haberleşmeyi açık tut"],
+    "HistoricalOutcome": "Plevne düştü; Rus ordusu Edirne’ye ve Ayastefanos’a kadar ilerledi. Erzurum savaş boyunca hücumla alınamadı, mütareke şartlarıyla boşaltıldı. Berlin Antlaşması’yla Kars, Ardahan ve Batum Rusya’ya bırakıldı.",
+    "WhatIf": "“Plevne İkmal Hattı” ALTERNATİF TARİHTİR: 1877’de Plevne’ye ulaşan bir demiryolu yoktu. Görev, böyle bir hattın savaştan önce döşenmiş olduğu varsayımına dayanır ve yalnızca ilgili odak tamamlanmışsa açılır.",
+    "Events": [
+      {"Id": "third_assault", "Trigger": "Eylül 1877", "Text": "Büyük taarruz: Grivitsa tabyası elden çıktı, diğerleri tutuluyor."},
+      {"Id": "plevne_starvation", "Trigger": "Supply < 15", "Text": "Tayın yarıya indirildi; yaralılar için ilaç kalmadı."},
+      {"Id": "aziziye_night_raid", "Trigger": "Kasım 1877", "Text": "Minarelerden sela veriliyor: “Moskof Aziziye’ye girdi!”"}
+    ],
+    "Outcomes": [
+      {"Id": "historical_breakout", "Label": "Aralık yarma teşebbüsü (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Manpower", "Value": -1200}, {"Stat": "Organization", "Value": -10}]},
+      {"Id": "early_withdrawal", "Label": "Çember kapanmadan çekil", "IsHistorical": false, "Effects": [{"Stat": "Manpower", "Value": -300}, {"Stat": "WarSupport", "Value": -6}, {"Stat": "Organization", "Value": 6}]},
+      {"Id": "rail_supply_whatif", "Label": "Demiryolu ikmali (what-if)", "IsHistorical": false, "Effects": [{"Stat": "Supply", "Value": 20}, {"Stat": "Manpower", "Value": -250}, {"Stat": "SabotageRisk", "Value": 15}]}
+    ],
+    "NPCs": ["NPC13_GaziOsmanPasa", "NPC14_GaziAhmedMuhtarPasa", "NPC15_NeneHatun"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Doksanüç Harbi”", "Url": "https://islamansiklopedisi.org.tr/doksanuc-harbi"}, {"Title": "TDV İslâm Ansiklopedisi, “Erzurum”", "Url": "https://islamansiklopedisi.org.tr/erzurum"}],
+    "AccuracyNotes": ["Plevne’de Osmanlı piyadesi Peabody-Martini ve Winchester tüfekleri kullandı; Mavzer bu görevde yer almamalı.", "Aziziye baskınının günü kaynaklarda 8/9 Kasım 1877 olarak geçer; teyit edilmeli."]
+  },
+  {
+    "Name": "C13_MavzerVeKrupp",
+    "Era": "Era3",
+    "Title": "Goltz Paşa’nın Talimi, Mavzer’in Namlusu",
+    "StartYear": 1883,
+    "EndYear": 1895,
+    "Locations": ["Mekteb-i Harbiye (Pangaltı)", "Tophane-i Âmire", "Maçka Silahhanesi", "Oberndorf ve Essen (sipariş ekranı)"],
+    "HistoricalContext": "93 Harbi yenilgisinden sonra II. Abdülhamid Alman askerî heyetinden yararlandı. Colmar von der Goltz 1883–1895 arasında Osmanlı hizmetinde bulundu; Mekteb-i Harbiye’nin ders programını ve erkân-ı harbiye eğitimini düzenledi, ordunun redif ve seferberlik teşkilatına dair layihalar hazırladı. Aynı dönemde Mauser fabrikasına büyük tüfek siparişleri verildi (1887 modeli, ardından 7,65 mm’lik 1890 ve 1893 modelleri); Krupp’tan sahra ve kale topları alındı. Bu alımlar orduyu modernleştirirken dışa bağımlılığı ve borcu artırdı.",
+    "PlayerRole": "Tophane ve Teçhizat-ı Askeriye komisyonu üyesi: tecrübe atışlarını, siparişi ve eğitimi yürütür.",
+    "Steps": [
+      {"Id": "s1", "Layer": "TPS", "Text": "Mekteb-i Harbiye’de Goltz Paşa ile ders programını ve harp oyununu görüş."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Atış sahasında Mavzer ve rakip tüfeklerin, Krupp sahra topunun tecrübesini yap."},
+      {"Id": "s3", "Layer": "HOI4", "Text": "Sipariş miktarını, ödeme takvimini ve fişek imalinin İstanbul’da yapılıp yapılmayacağını kararlaştır."},
+      {"Id": "s4", "Layer": "AOE", "Text": "Yeni tüfekle donatılmış Nizamiye taburunu manevrada sına."}
+    ],
+    "PrimaryObjectives": ["Subay eğitim seviyesini yükselt", "Piyadeyi tek tip mekanizmalı tüfeğe geçir", "Fişek ve yedek parça için yerli imalat payı ayır"],
+    "HistoricalOutcome": "Ordu Mavzer tüfekleri ve Krupp toplarıyla donatıldı; Goltz’un yetiştirdiği subay kuşağı 1897’den I. Dünya Savaşı’na kadar orduya damga vurdu.",
+    "WhatIf": "Lisans alıp tüfeği Tophane’de imal etmek “Zeytinburnu & Tophane Ağır Sanayi Hamlesi” dalına bağlanır: yüksek ilk maliyet, uzun vadeli bağımsızlık.",
+    "Events": [
+      {"Id": "rifle_trials", "Trigger": "Step s2", "Text": "Komisyon önünde tecrübe atışı: mekanizma kumda tutukluk yaptı mı?"},
+      {"Id": "payment_arrears", "Trigger": "Treasury < 25", "Text": "Fabrika taksit gecikirse sevkiyatı durduracağını bildiriyor."}
+    ],
+    "Outcomes": [
+      {"Id": "import_all", "Label": "Tam ithalat (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Eq_Infantry", "Value": 600}, {"Stat": "Eq_Artillery", "Value": 120}, {"Stat": "Debt", "Value": 20}, {"Stat": "ForeignDependence", "Value": 15}, {"Stat": "Organization", "Value": 8}]},
+      {"Id": "import_plus_ammo", "Label": "İthal tüfek, yerli fişek", "IsHistorical": false, "Effects": [{"Stat": "Eq_Infantry", "Value": 450}, {"Stat": "FactoryEfficiency", "Value": 8}, {"Stat": "Treasury", "Value": -40}, {"Stat": "ForeignDependence", "Value": 6}]}
+    ],
+    "NPCs": ["NPC16_GoltzPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Goltz, Colmar von der” ve “Abdülhamid II” maddeleri", "Url": ""}],
+    "AccuracyNotes": ["Sipariş adetleri ve model yılları (1887/1890/1893/1903) dönem katalogları ve askerî salnamelerle teyit edilmeli; bu dosyada adet verilmemiştir.", "“1890/1903 Osmanlı Mavzeri” 1877 veya öncesindeki görevlerde kullanılmamalı."]
+  },
+  {
+    "Name": "C14_Demiryollari",
+    "Era": "Era3",
+    "Title": "Şark’tan Hicaz’a: Demir Yol",
+    "StartYear": 1869,
+    "EndYear": 1908,
+    "Locations": ["Sirkeci Garı (1890)", "Haydarpaşa", "Rumeli hattı: Edirne, Filibe, Selanik", "Şam – Der‘a – Maan – Medine"],
+    "HistoricalContext": "Rumeli demiryolları imtiyazı 1869’da Baron Hirsch’e verildi; hattın etüdünde Avusturyalı mühendis Wilhelm von Pressel çalıştı, sonra Anadolu ve Bağdat hattı için tasarılar hazırladı. İstanbul 1888’de Avrupa ağına bağlandı; Sirkeci Garı 1890’da açıldı. Anadolu Demiryolu Haydarpaşa’dan 1892’de Ankara’ya ulaştı. Hicaz Demiryolu’nun yapımına 1900’de başlandı; başmühendis Heinrich August Meissner’di, işçiliğin büyük kısmını Osmanlı askerleri yaptı, masrafın önemli bölümü Müslümanların bağışlarıyla karşılandı. Hat 1908’de Medine’ye ulaştı.",
+    "PlayerRole": "Nafia Nezareti demiryolu komiseri: güzergâh, finansman ve askerî-sivil kullanım dengesini kurar.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Güzergâh ve finansman modelini seç: imtiyazlı şirket mi, devlet/bağış mı?"},
+      {"Id": "s2", "Layer": "TPS", "Text": "Sirkeci plan odasında Wilhelm von Pressel ile ağ tasarısını görüş."},
+      {"Id": "s3", "Layer": "AOE", "Text": "Şam’dan güneye ray, köprü, su deposu ve istasyon inşa et; amele taburlarını yönet."},
+      {"Id": "s4", "Layer": "TPS", "Text": "Hat başında Meissner Paşa ile su ve bakım sorununu çöz; Medine’ye ilk treni karşıla."}
+    ],
+    "PrimaryObjectives": ["Hattı güvenli ve işler biçimde tamamla", "Her 25 km’de su/onarım noktası kur", "Hac ve askerî sevkiyat arasında kapasite dengesi kur"],
+    "HistoricalOutcome": "Hicaz hattı Şam’dan Medine’ye ulaştı; Mekke’ye uzatılamadı. Bağdat hattı I. Dünya Savaşı’na kadar tamamlanamadı.",
+    "WhatIf": "Hattın Mekke ve Cidde’ye uzatılması alternatif hedeftir: yerel muhalefet ve deve kervanı ekonomisiyle çatışma doğurur.",
+    "Events": [
+      {"Id": "donation_campaign", "Trigger": "Yıl 1900", "Text": "Hindistan’dan Fas’a iane defterleri açıldı."},
+      {"Id": "water_shortage", "Trigger": "Step s3", "Text": "Maan’dan sonra kuyu yok; lokomotif suyu vagonla taşınıyor."},
+      {"Id": "medina_arrival", "Trigger": "Yıl 1908", "Text": "İlk tren Medine istasyonuna girdi."}
+    ],
+    "Outcomes": [
+      {"Id": "donation_network", "Label": "Bağış ağı", "IsHistorical": true, "Effects": [{"Stat": "Treasury", "Value": 35}, {"Stat": "PP", "Value": 15}]},
+      {"Id": "military_priority", "Label": "Askerî öncelik", "IsHistorical": false, "Effects": [{"Stat": "Supply", "Value": 15}, {"Stat": "Stability", "Value": -5}]},
+      {"Id": "pilgrim_priority", "Label": "Hac önceliği", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "MilitaryCapacity", "Value": -5}]}
+    ],
+    "NPCs": ["NPC17_WilhelmVonPressel", "NPC18_MeissnerPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Hicaz Demiryolu”", "Url": "https://islamansiklopedisi.org.tr/hicaz-demiryolu"}],
+    "AccuracyNotes": ["Meissner Paşa yalnız Hicaz (ve sonra Bağdat) hattıyla ilişkilendirilmeli; Şark Demiryolları’nın mühendisi değildir.", "Bugünkü Haydarpaşa Garı binası 1908–1909’da tamamlandı; daha önceki yıllarda eski, küçük istasyon binası modellenmeli."]
+  },
+  {
+    "Name": "C15_DomekedenMeclise",
+    "Era": "Era3",
+    "Title": "Dömeke’den Meclise",
+    "StartYear": 1897,
+    "EndYear": 1908,
+    "Locations": ["Alasonya", "Milona Geçidi", "Yenişehir (Larissa)", "Dömeke", "Resne, Manastır, Selanik", "İstanbul"],
+    "HistoricalContext": "Girit meselesi yüzünden çıkan 1897 Osmanlı-Yunan Savaşı Nisan–Mayıs aylarında bir ay kadar sürdü. Müşir Edhem Paşa komutasındaki ordu Milona’yı geçti, Yenişehir ve Velestin’den sonra 17 Mayıs’ta Dömeke’de kesin başarı kazandı. Büyük devletlerin araya girmesiyle mütareke yapıldı; barışta Osmanlı Devleti savaş tazminatı ve küçük sınır düzeltmeleriyle yetindi, Girit ise özerk statüye geçti. Temmuz 1908’de Makedonya’daki subay hareketi (Resne, Manastır) üzerine II. Abdülhamid Kanun-ı Esasi’yi yeniden yürürlüğe koydu.",
+    "PlayerRole": "1897’de fırka kumandanı; 1908’de Üçüncü Ordu’da bir erkân-ı harp zabiti.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Tesalya sınırında seferberliği demiryoluyla (Selanik hattı) tamamla."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Milona Geçidi’ni aç; Dömeke sırtlarına topçu destekli taarruz et."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Karargâhta Edhem Paşa ile ileri harekât / mütareke kararını görüş."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "1908: Manastır ve Selanik’ten gelen telgraflar karşısında birliklerin tutumunu belirle."}
+    ],
+    "PrimaryObjectives": ["Cephe başarısını sürdürülebilir ateşkese dönüştür", "Dış müdahale riskini yönet", "1908 geçişinde kan dökülmesini önle"],
+    "HistoricalOutcome": "Askerî zafer sınırlı diplomatik kazançla sonuçlandı. 23–24 Temmuz 1908’de Meşrutiyet yeniden ilan edildi.",
+    "WhatIf": "Atina’ya yürüyüş veya Tesalya’nın ilhakı tarihsel sonuç değildir; büyük devlet müdahalesi ve abluka riski doğurur.",
+    "Events": [
+      {"Id": "great_power_note", "Trigger": "Dömeke sonrası", "Text": "Sefirler müşterek nota verdi: harekât durdurulsun."},
+      {"Id": "telegrams_from_manastir", "Trigger": "Temmuz 1908", "Text": "Yıldız’a yağan telgraflar: “Kanun-ı Esasi ilan edilmezse…”"}
+    ],
+    "Outcomes": [
+      {"Id": "armistice", "Label": "Mütareke (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": 6}, {"Stat": "PP", "Value": 30}, {"Stat": "Treasury", "Value": 20}]},
+      {"Id": "advance", "Label": "İleri harekât", "IsHistorical": false, "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Manpower", "Value": -900}, {"Stat": "ForeignPressure", "Value": 20}]}
+    ],
+    "NPCs": ["NPC19_EdhemPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Tesalya”", "Url": "https://islamansiklopedisi.org.tr/tesalya"}, {"Title": "TDV İslâm Ansiklopedisi, “Osmanlılar”", "Url": "https://islamansiklopedisi.org.tr/osmanlilar"}],
+    "AccuracyNotes": []
+  },
+  {
+    "Name": "C16_HareketOrdusu",
+    "Era": "Era4",
+    "Title": "Otuzbir Mart ve Hareket Ordusu",
+    "StartYear": 1909,
+    "EndYear": 1909,
+    "Locations": ["Selanik", "Ayastefanos (Yeşilköy)", "Taksim ve Taşkışla kışlaları", "Yıldız Sarayı", "Meclis-i Mebusan"],
+    "HistoricalContext": "13 Nisan 1909’da (Rumî 31 Mart 1325) İstanbul’da avcı taburlarının başlattığı ayaklanma hükûmeti düşürdü. Selanik’te toplanan Hareket Ordusu, Mahmud Şevket Paşa komutasında İstanbul’a yürüdü; 24 Nisan’da şehre girdi, Taksim ve Taşkışla’da çarpışmalar oldu. Ayastefanos’ta toplanan meclis 27 Nisan’da II. Abdülhamid’in hal‘ine karar verdi; V. Mehmed Reşad tahta çıktı. Ardından sıkıyönetim ve divan-ı harp yargılamaları geldi.",
+    "PlayerRole": "Hareket Ordusu’nda bir müfreze kumandanı.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Selanik’ten trenle Çatalca–Ayastefanos hattına yığınak yap."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Ayastefanos karargâhında Mahmud Şevket Paşa’dan şehre giriş talimatını al."},
+      {"Id": "s3", "Layer": "AOE", "Text": "Taşkışla ve Taksim kışlalarını çevir; sivil mahalleleri ve sefaretleri koru."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Sıkıyönetimin kapsamını ve süresini belirle."}
+    ],
+    "PrimaryObjectives": ["Başkentte düzeni en az sivil kayıpla sağla", "Meclisin toplanmasını güvenceye al", "Ordunun siyasete müdahalesinin sınırını belirle"],
+    "HistoricalOutcome": "Ayaklanma bastırıldı, padişah değişti, sıkıyönetim ilan edildi. Ordunun siyasetteki ağırlığı kalıcı biçimde arttı.",
+    "WhatIf": "Kısa sıkıyönetim ve sivil yargı seçeneği istikrarı uzun vadede yükseltir; fakat İttihatçı subayların desteğini azaltır.",
+    "Events": [
+      {"Id": "barracks_fight", "Trigger": "Step s3", "Text": "Taşkışla’dan ateş açıldı."},
+      {"Id": "deposition_fatwa", "Trigger": "27 Nisan 1909", "Text": "Meclis-i Umumî-i Millî hal‘ fetvasını okuyor."}
+    ],
+    "Outcomes": [
+      {"Id": "controlled_entry", "Label": "Kontrollü giriş (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": 6}, {"Stat": "PP", "Value": 25}, {"Stat": "Manpower", "Value": -150}]},
+      {"Id": "long_martial_law", "Label": "Uzun sıkıyönetim (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "Organization", "Value": 6}, {"Stat": "Stability", "Value": -6}]},
+      {"Id": "short_martial_law", "Label": "Kısa sıkıyönetim", "IsHistorical": false, "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "PP", "Value": -20}]}
+    ],
+    "NPCs": ["NPC20_MahmudSevketPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Otuzbir Mart Vak‘ası” ve “Mahmud Şevket Paşa” maddeleri", "Url": ""}],
+    "AccuracyNotes": ["Kolağası Mustafa Kemal ve Binbaşı Enver Bey Hareket Ordusu’nda görevliydi; arka plan karakteri olarak yer alabilir, komuta rolü abartılmamalı."]
+  },
+  {
+    "Name": "C17_Trablusgarp",
+    "Era": "Era4",
+    "Title": "Trablusgarp: Çölde Fedailer",
+    "StartYear": 1911,
+    "EndYear": 1912,
+    "Locations": ["Trablus", "Bingazi", "Derne", "Tobruk", "Mısır sınırı – Sellum"],
+    "HistoricalContext": "İtalya 29 Eylül 1911’de savaş ilan ederek Trablusgarp ve Bingazi kıyılarına asker çıkardı. Bölgedeki Osmanlı garnizonu zayıftı; Mısır İngiliz denetiminde, deniz İtalyan donanmasının elindeydi. Enver Bey, Mustafa Kemal, Fethi Bey gibi subaylar kılık değiştirerek Mısır ve Tunus üzerinden bölgeye geçti ve Senûsîlerle birlikte yerel direnişi örgütledi. Savaşta uçak ilk kez keşif ve bombardıman için kullanıldı. İtalya’nın On İki Ada’yı işgali ve Balkan Harbi’nin patlaması üzerine 18 Ekim 1912’de Uşi Antlaşması imzalandı.",
+    "PlayerRole": "Gizlice bölgeye geçen bir kurmay subay: kabile kuvvetlerini ve garnizon artıklarını örgütler.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Mısır ve Tunus üzerinden gizli subay, para ve cephane sevk et."},
+      {"Id": "s2", "Layer": "AOE", "Text": "Derne ve Tobruk önünde çadır karargâhı, eğitim ordugâhı ve seyyar hastane kur."},
+      {"Id": "s3", "Layer": "AOE", "Text": "İtalyan kıyı mevzilerine gece baskınları düzenle; donanma topu menzilinden uzak dur."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Ekim 1912: Balkan seferberliği başladı; subayları geri çağır ya da çölde bırak."}
+    ],
+    "PrimaryObjectives": ["Yerel direnişin ikmalini sürdür", "İtalyanları kıyı şeridinde tut", "Balkan cephesine stratejik yedek ayır"],
+    "HistoricalOutcome": "Uşi Antlaşması’yla Trablusgarp ve Bingazi İtalya’ya bırakıldı; On İki Ada “geçici” kaydıyla İtalyan işgalinde kaldı. Yerel direniş sonraki yıllarda sürdü.",
+    "WhatIf": "Daha uzun direniş İtalya’nın maliyetini yükseltir; deniz ablukasını kendiliğinden kırmaz ve Balkan cephesini zayıflatır.",
+    "Events": [
+      {"Id": "first_air_raid", "Trigger": "Kasım 1911", "Text": "Bir İtalyan tayyaresi ordugâha el bombası attı; neferler göğe ateş ediyor."},
+      {"Id": "dodecanese_occupied", "Trigger": "Mayıs 1912", "Text": "Rodos’a İtalyan askeri çıktı."},
+      {"Id": "balkan_ultimatum", "Trigger": "Ekim 1912", "Text": "Karadağ harp ilan etti."}
+    ],
+    "Outcomes": [
+      {"Id": "covert_supply", "Label": "Gizli ikmali sürdür", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 5}, {"Stat": "Eq_Infantry", "Value": 180}, {"Stat": "Treasury", "Value": -25}]},
+      {"Id": "withdraw", "Label": "Kuvvetleri çek, Uşi’yi imzala", "IsHistorical": true, "Effects": [{"Stat": "Manpower", "Value": 500}, {"Stat": "Stability", "Value": -8}, {"Stat": "PP", "Value": -20}]}
+    ],
+    "NPCs": [],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Osmanlılar”", "Url": "https://islamansiklopedisi.org.tr/osmanlilar"}, {"Title": "TDV İslâm Ansiklopedisi, “Trablusgarp Savaşı” maddesi", "Url": ""}],
+    "AccuracyNotes": ["İlk hava bombardımanının tarihi (1 Kasım 1911) ve pilotun adı teyit edilerek olay kartına eklenebilir."]
+  },
+  {
+    "Name": "C18_CatalcaVeEdirne",
+    "Era": "Era4",
+    "Title": "Çatalca Hattı, Edirne ve Hamidiye",
+    "StartYear": 1912,
+    "EndYear": 1913,
+    "Locations": ["Kırkkilise, Lüleburgaz", "Çatalca tahkimat hattı", "Hadımköy karargâhı", "Edirne kalesi", "Ege, Adriyatik ve Doğu Akdeniz (Hamidiye rotası)"],
+    "HistoricalContext": "Ekim 1912’de başlayan Birinci Balkan Harbi’nde Osmanlı orduları Kırkkilise ve Lüleburgaz’da yenilerek Çatalca hattına çekildi; ordu kolera salgınıyla kırıldı, İstanbul muhacirle doldu. Kasım 1912’de Bulgar taarruzu Çatalca’da durduruldu. Ocak 1913’te Babıâli Baskını’yla hükûmet devrildi; Şükrü Paşa’nın savunduğu Edirne Mart 1913’te açlıktan teslim oldu. Rauf Bey komutasındaki Hamidiye kruvazörü 1913 boyunca Ege, Adriyatik ve Akdeniz’de ticaret ve nakliye gemilerine akınlar yaptı. Balkan devletleri birbirine düşünce Osmanlı kuvvetleri Temmuz 1913’te Edirne’yi geri aldı.",
+    "PlayerRole": "Çatalca’da kolordu erkân-ı harbi; deniz kolunda Hamidiye’nin ikmal planlayıcısı.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Çatalca’da tabya, tel örgü ve sahra bataryaları kur; Bulgar taarruzunu karşıla."},
+      {"Id": "s2", "Layer": "HOI4", "Text": "Kolera karantinasını, su dağıtımını ve muhacir iskânını yönet."},
+      {"Id": "s3", "Layer": "TPS", "Text": "Hamidiye güvertesinde Rauf Bey ile akın rotasını ve kömür ikmalini kararlaştır."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Temmuz 1913: Edirne’ye ilerleyişin diplomatik ve askerî şartlarını değerlendir."}
+    ],
+    "PrimaryObjectives": ["İstanbul’un savunmasını tut", "Salgın kaybını sınırla", "Edirne harekâtında ikmal ve kuvvet bütünlüğünü koru"],
+    "HistoricalOutcome": "Çatalca hattı tutuldu; Rumeli’nin büyük kısmı kaybedildi; Edirne 1913’te geri alındı. Hamidiye akınları moral kaynağı oldu fakat Ege’de deniz hâkimiyeti sağlamadı.",
+    "WhatIf": "Seferberliğin terhis edilmeden tamamlanması Kırkkilise–Lüleburgaz hattında tutunma şansı verir; mutlak zafer vaat etmez.",
+    "Events": [
+      {"Id": "cholera_outbreak", "Trigger": "Kasım 1912", "Text": "Hadımköy’de kolera: günde yüzlerce nefer hastalanıyor."},
+      {"Id": "babiali_raid", "Trigger": "Ocak 1913", "Text": "Babıâli basıldı; Harbiye Nazırı vuruldu."},
+      {"Id": "edirne_falls", "Trigger": "Mart 1913", "Text": "Edirne’den son telsiz: “Erzak bitti.”"}
+    ],
+    "Outcomes": [
+      {"Id": "hold_catalca", "Label": "Çatalca’yı tut", "IsHistorical": true, "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "Manpower", "Value": -300}]},
+      {"Id": "retake_edirne", "Label": "Edirne’ye yürü", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Supply", "Value": -12}, {"Stat": "ForeignPressure", "Value": 8}]},
+      {"Id": "hamidiye_raids", "Label": "Hamidiye akınları", "IsHistorical": true, "Effects": [{"Stat": "NavalReadiness", "Value": -8}, {"Stat": "ConvoyDisruption", "Value": 12}, {"Stat": "WarSupport", "Value": 4}]}
+    ],
+    "NPCs": ["NPC21_RaufBey"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Mehmed V”", "Url": "https://islamansiklopedisi.org.tr/mehmed-v"}, {"Title": "TDV İslâm Ansiklopedisi, “Balkan Savaşı” maddesi", "Url": ""}],
+    "AccuracyNotes": ["Bu gelişmeler tek, kesintisiz bir zafer anlatısına dönüştürülmemeli; görev ağır bir yenilginin içindeki tutunma hikâyesidir."]
+  },
+  {
+    "Name": "C19_Canakkale",
+    "Era": "Era4",
+    "Title": "Çanakkale: Boğaz Geçilmez",
+    "StartYear": 1914,
+    "EndYear": 1916,
+    "Locations": ["Çanakkale Müstahkem Mevkii", "Rumeli Mecidiye ve Hamidiye tabyaları", "Erenköy Koyu", "Seddülbahir", "Arıburnu", "Conkbayırı – Anafartalar"],
+    "HistoricalContext": "Ağustos 1914’te İngiltere, parası ödenmiş Sultan Osman-ı Evvel ve Reşadiye dretnotlarına el koydu; aynı ay Goeben ve Breslau Boğaz’dan geçerek Yavuz ve Midilli adını aldı. Aralık 1914’te eski Mesudiye zırhlısı bir İngiliz denizaltısınca batırıldı. Mart 1915 başında Nusret mayın gemisi Erenköy Koyu’na gizlice bir mayın hattı döktü. 18 Mart 1915’te Boğaz’ı zorlayan İtilaf filosu, Müstahkem Mevki Kumandanı Cevat Paşa’nın bataryaları ve mayınlar karşısında üç zırhlı kaybederek çekildi. 25 Nisan’da başlayan kara muharebeleri Seddülbahir, Arıburnu ve Ağustos’ta Anafartalar’da sürdü; İtilaf kuvvetleri Ocak 1916’da yarımadayı boşalttı. İki taraf da çok ağır kayıp verdi.",
+    "PlayerRole": "Müstahkem Mevki erkân-ı harbi; kara safhasında bir alay kumandanı.",
+    "Steps": [
+      {"Id": "s1", "Layer": "AOE", "Text": "Tabyaları onar, seyyar obüs bataryalarını gizle, mayın hatlarını ve ışıldakları yerleştir."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Kilitbahir’de Cevat Paşa ile cephane tasarrufunu ve Nusret’in mayın görevini görüş."},
+      {"Id": "s3", "Layer": "AOE", "Text": "18 Mart: filo taarruzunu karşıla; cephaneyi son safhaya sakla."},
+      {"Id": "s4", "Layer": "AOE", "Text": "25 Nisan ve sonrası: Seddülbahir ve Arıburnu’nda siper muharebesi; su, sıhhiye ve ihtiyat yönetimi."},
+      {"Id": "s5", "Layer": "HOI4", "Text": "5. Ordu ihtiyat fırkalarını Bolayır, Saros ve Anadolu yakası arasında paylaştır; İstanbul’dan deniz ve kara ikmalini denizaltı tehdidine karşı düzenle."}
+    ],
+    "PrimaryObjectives": ["Boğaz’ı kapalı tut", "Ağır top cephanesini tüketme", "Kara cephesinde hastalık ve susuzluk kaybını azalt"],
+    "HistoricalOutcome": "İtilaf donanması Boğaz’ı geçemedi; kara harekâtı da sonuç alamadı ve yarımada boşaltıldı.",
+    "WhatIf": "“Sultan Osman-ı Evvel ve Reşadiye Teslimatı” dalı alternatif tarihtir. İki dretnot bile İngiliz Akdeniz filosuna ve Rus Karadeniz filosuna karşı otomatik “mutlak hâkimiyet” vermez; kömür, mürettebat ve havuz sınırlamaları oyun kuralı olarak kalır.",
+    "Events": [
+      {"Id": "dreadnoughts_seized", "Trigger": "Ağustos 1914", "Text": "Londra’dan telgraf: gemilere el kondu."},
+      {"Id": "nusret_minefield", "Trigger": "Mart 1915", "Text": "Nusret gece karanlığında Erenköy’e mayın döktü."},
+      {"Id": "march_18", "Trigger": "18 Mart 1915", "Text": "Bouvet alabora oldu!"},
+      {"Id": "landings", "Trigger": "25 Nisan 1915", "Text": "Seddülbahir ve Arıburnu’na çıkarma başladı."}
+    ],
+    "Outcomes": [
+      {"Id": "fortify", "Label": "Tahkimat ve mayın", "IsHistorical": true, "Effects": [{"Stat": "FortLevel", "Value": 2}, {"Stat": "Eq_Artillery", "Value": -250}]},
+      {"Id": "strait_held", "Label": "Boğaz tutulur", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 15}, {"Stat": "Manpower", "Value": -2500}, {"Stat": "Stability", "Value": 5}]}
+    ],
+    "NPCs": ["NPC22_CevatPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Çanakkale Muharebeleri” maddesi", "Url": ""}, {"Title": "TDV İslâm Ansiklopedisi, “Osmanlılar”", "Url": "https://islamansiklopedisi.org.tr/osmanlilar"}],
+    "AccuracyNotes": ["Nusret’in mayın dökme gecesi (7/8 Mart 1915), mayın sayısı ve gemi/mayın subaylarının adları Deniz Kuvvetleri yayınlarından teyit edilmeli.", "Seyit Onbaşı sahnesi kullanılacaksa mermi ağırlığı ve isabet anlatısı kaynakla doğrulanmalı."]
+  },
+  {
+    "Name": "C20_UzakCepheler",
+    "Era": "Era4",
+    "Title": "Uzak Cepheler: Kut, Medine, Kafkasya",
+    "StartYear": 1914,
+    "EndYear": 1919,
+    "Locations": ["Sarıkamış", "Erzurum", "Selman-ı Pâk", "Kut’ül-Amâre", "Medine", "Bakü"],
+    "HistoricalContext": "Kafkas cephesi Aralık 1914–Ocak 1915’te Sarıkamış harekâtının soğuk, hastalık ve çarpışmadan gelen ağır kayıplarıyla açıldı; 1916’da Erzurum, Trabzon ve Erzincan Rusların eline geçti, 1917 ihtilalinden sonra geri alındı; Eylül 1918’de Nuri Paşa komutasındaki Kafkas İslâm Ordusu Bakü’ye girdi. Irak’ta General Townshend’in tümeni Selman-ı Pâk’tan sonra Kut’a çekildi ve Aralık 1915’ten itibaren kuşatıldı; kurtarma kuvvetleri püskürtüldü, garnizon 29 Nisan 1916’da Halil Paşa’ya teslim oldu. Hicaz’da 1916 isyanından sonra Fahreddin Paşa, demiryolu sürekli tahrip edilirken Medine’yi savundu; Mondros’tan sonra da teslimi reddetti, şehir Ocak 1919’da teslim edildi.",
+    "PlayerRole": "Harbiye Nezareti menzil müfettişi: üç cepheyi ayrı harekât olarak besler.",
+    "Steps": [
+      {"Id": "s1", "Layer": "HOI4", "Text": "Kafkasya: kışlık giyim, erzak ve geri çekilme hattını planla (Sarıkamış kararı)."},
+      {"Id": "s2", "Layer": "TPS", "Text": "Kut önünde Halil Paşa ile kuşatma ve teslim şartlarını görüş."},
+      {"Id": "s3", "Layer": "AOE", "Text": "Hicaz hattında istasyon blokhavzları ve onarım treni kur; Medine’yi iaşe et."},
+      {"Id": "s4", "Layer": "TPS", "Text": "Medine istasyonunda Fahreddin Paşa ile teslim emrini; Kafkas kolunda Nuri Paşa ile Bakü yürüyüşünü görüş."}
+    ],
+    "PrimaryObjectives": ["Her cepheyi ayrı ikmal bütçesiyle yönet", "Soğuk ve hastalık kaybını azalt", "Siyasî ve askerî emirler arasındaki çelişkiyi çöz"],
+    "HistoricalOutcome": "Kut bir Osmanlı zaferidir; Bağdat ise Mart 1917’de düştü. Medine savunması Ocak 1919’da sona erdi. Kafkas cephesi ağır insan kaybı ve Mondros’la gelen geri çekilmeyle kapandı.",
+    "WhatIf": "Sarıkamış taarruzunu bahara ertelemek veya iptal etmek alternatif karardır; 3. Ordu’yu korur, fakat “Turan” savaş hedeflerinden vazgeçmek PP’ye mal olur.",
+    "Events": [
+      {"Id": "sarikamis_blizzard", "Trigger": "Aralık 1914", "Text": "Allahuekber Dağları’nda tipi: kollar birbirini kaybetti."},
+      {"Id": "kut_surrender", "Trigger": "Nisan 1916", "Text": "Townshend teslim şartlarını soruyor."},
+      {"Id": "hejaz_rail_cut", "Trigger": "1917", "Text": "Hat yine havaya uçuruldu; onarım treni yola çıktı."},
+      {"Id": "mudros_order", "Trigger": "Kasım 1918", "Text": "İstanbul’dan emir: Medine teslim edilecek."}
+    ],
+    "Outcomes": [
+      {"Id": "kut_supply", "Label": "Kut kuşatmasını besle", "IsHistorical": true, "Effects": [{"Stat": "Supply", "Value": 10}, {"Stat": "Manpower", "Value": -180}, {"Stat": "WarSupport", "Value": 8}]},
+      {"Id": "medina_evacuate", "Label": "Medine’yi erken tahliye et", "IsHistorical": false, "Effects": [{"Stat": "PP", "Value": -20}, {"Stat": "Manpower", "Value": 250}, {"Stat": "Supply", "Value": 6}]},
+      {"Id": "medina_resist", "Label": "Medine’de diren (tarihsel)", "IsHistorical": true, "Effects": [{"Stat": "WarSupport", "Value": 5}, {"Stat": "Supply", "Value": -15}]},
+      {"Id": "sarikamis_postponed", "Label": "Kış taarruzunu ertele", "IsHistorical": false, "Effects": [{"Stat": "Manpower", "Value": 1500}, {"Stat": "PP", "Value": -40}, {"Stat": "WarSupport", "Value": -5}]}
+    ],
+    "NPCs": ["NPC23_HalilPasa", "NPC24_FahreddinPasa", "NPC25_NuriPasa"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Fahreddin Paşa”", "Url": "https://islamansiklopedisi.org.tr/fahreddin-pasa"}, {"Title": "TDV İslâm Ansiklopedisi, “Kûtülamâre”, “Sarıkamış Harekâtı” maddeleri", "Url": ""}],
+    "AccuracyNotes": ["Sarıkamış kayıp sayıları kaynaklara göre çok değişir; oyun metninde kesin rakam verilmemeli.", "Bu cephelerin geçtiği coğrafyada 1915’te Ermeni tehciri ve kitlesel sivil ölümler yaşandı; içerik bu konuyu yok saymamalı veya oyunlaştırmamalı, tarih danışmanı ve yayıncı politikasıyla ele alınmalıdır.", "Kut esirlerinin yürüyüşte verdiği ağır kayıp “düzenli teslim” seçeneğinin neden oyun kararı olduğunu açıklar."]
+  },
+  {
+    "Name": "C21_ImalatiHarbiye",
+    "Era": "Era4",
+    "Title": "İmalat-ı Harbiye ve İstiklal Yolu",
+    "StartYear": 1919,
+    "EndYear": 1923,
+    "Locations": ["İstanbul: Tophane, Zeytinburnu, Maçka Silahhanesi, Karaağaç", "Akbaş cephaneliği (Gelibolu)", "İnebolu iskelesi", "Kastamonu – Çankırı – Ankara kağnı yolu", "Ankara: İmalat-ı Harbiye atölyeleri"],
+    "HistoricalContext": "Mondros Mütarekesi’nden sonra İstanbul’daki silah ve cephane depoları İtilaf denetimine girdi. Gizli gruplar (başta Karakol Cemiyeti ve sonraki teşkilatlar), askerî fabrika ustaları, depo memurları, kayıkçılar ve hamallar silah, kama, fişek ve tezgâh parçalarını Anadolu’ya kaçırdı. Ocak 1920’de Gelibolu yarımadasındaki Akbaş cephaneliği basılarak silahlar karşı yakaya geçirildi. Karadeniz’den İnebolu’ya çıkarılan malzeme kağnılarla Kastamonu üzerinden Ankara’ya taşındı; bu yük büyük ölçüde köylü kadınların omzundaydı. Ankara ve çevresinde kurulan atölyeler tüfek onardı, süngü ve fişek imal etti. Savaş Ekim 1922’de Mudanya Mütarekesi ve Temmuz 1923’te Lozan Antlaşması’yla sona erdi.",
+    "PlayerRole": "İstanbul’da gizli sevkiyat grubunda bir levazım subayı; sonra Ankara’da imalat şubesi müdür muavini.",
+    "Steps": [
+      {"Id": "s1", "Layer": "TPS", "Text": "İşgal altındaki İstanbul’da gece: Tophane atölyesinde ustabaşıyla buluş, devriyelere görünmeden depoyu say."},
+      {"Id": "s2", "Layer": "HOI4", "Text": "Sevkiyat rotalarını aç: İnebolu deniz yolu, İzmit/Kocaeli kara yolu, Akbaş baskını."},
+      {"Id": "s3", "Layer": "AOE", "Text": "İnebolu–Ankara hattında menzil noktaları, kağnı kolları ve Ankara’da tamir atölyesi kur."},
+      {"Id": "s4", "Layer": "HOI4", "Text": "Sakarya ve Büyük Taarruz öncesi sevkiyat partilerini cephe ihtiyacına göre böl."}
+    ],
+    "PrimaryObjectives": ["Sevkiyatın yakalanma riskini düşük tut", "Usta ve işçileri Anadolu’ya geçir", "Silahları cepheye çalışır halde ulaştır"],
+    "HistoricalOutcome": "İstanbul’dan kaçırılan malzeme ve Anadolu’daki onarım/imalat faaliyeti, Sovyet yardımı ve ele geçirilen silahlarla birlikte ordunun donatımını sağladı. Ankara’daki atölyeler Cumhuriyet’in askerî fabrikalarının çekirdeği oldu.",
+    "WhatIf": "Tezgâhların büyük kısmının erken kaçırılması Ankara’da üretimi hızlandırır; fakat keşif riskini ve İstanbul’daki misillemeyi artırır. 1923–1925 dönemi ayrı bir epilog (Cumhuriyet’in ilanı, askerî fabrikaların teşkili) olarak tasarlanmalıdır.",
+    "Events": [
+      {"Id": "akbas_raid", "Trigger": "Ocak 1920", "Text": "Akbaş’tan haber: cephanelik boşaltıldı, kayıklar karşıya geçti."},
+      {"Id": "depot_inspection", "Trigger": "DiscoveryRisk > 40", "Text": "İtilaf kontrol subayı depoyu sayıma geliyor."},
+      {"Id": "inebolu_shelled", "Trigger": "1921", "Text": "İnebolu iskelesi denizden topa tutuldu; kayıkçılar sandıkları sırtlarında taşıdı."},
+      {"Id": "ox_cart_winter", "Trigger": "Kış", "Text": "Ilgaz’da kar: kağnı kolu geçitte kaldı."}
+    ],
+    "Outcomes": [
+      {"Id": "covert_shipments", "Label": "Gizli sevkiyat", "IsHistorical": true, "Effects": [{"Stat": "Eq_Infantry", "Value": 220}, {"Stat": "PP", "Value": 25}, {"Stat": "DiscoveryRisk", "Value": 15}]},
+      {"Id": "anatolian_workshops", "Label": "Anadolu’da atölye", "IsHistorical": true, "Effects": [{"Stat": "FactoryEfficiency", "Value": 10}, {"Stat": "Eq_Infantry", "Value": 100}, {"Stat": "Eq_Artillery", "Value": 20}]},
+      {"Id": "evacuate_workers", "Label": "Ustaları geçir", "IsHistorical": true, "Effects": [{"Stat": "Manpower", "Value": 80}, {"Stat": "Output", "Value": -5}, {"Stat": "DiscoveryRisk", "Value": -10}]}
+    ],
+    "NPCs": ["NPC26_ImalatiHarbiyeUstabasi"],
+    "Sources": [{"Title": "TDV İslâm Ansiklopedisi, “Millî Mücadele” ve “Karakol Cemiyeti” maddeleri", "Url": ""}, {"Title": "Genelkurmay ATASE yayınları: Türk İstiklal Harbi serisi (İdarî Faaliyetler cildi)", "Url": ""}],
+    "AccuracyNotes": ["Bu görevin tarihsel çerçevesi ATASE ve MKE kurum tarihleriyle genişletilmelidir; atölye adları, müdürleri ve üretim miktarları bu dosyada bilinçli olarak verilmemiştir.", "Nuri Killigil’in silah fabrikacılığı Cumhuriyet dönemine aittir; bu görevde İmalat-ı Harbiye çalışanı olarak gösterilmemeli."]
+  }
+]

@@ -1,0 +1,730 @@
+[
+  {
+    "Name": "NPC01_BaltaciMehmedPasa",
+    "FullName": "Baltacı Mehmed Paşa",
+    "Title": "Sadrazam ve Serdar-ı Ekrem",
+    "Era": "Era1",
+    "Chapters": ["C01_Prut"],
+    "ActiveFrom": 1711, "ActiveTo": 1711,
+    "InteractKey": "F",
+    "Location": "Prut ordugâhı – Otağ-ı Hümâyun yanındaki divan çadırı, harita masası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kallâvî (vezir kavuğu), sade sorguç",
+      "Clothing": "Samur kürklü vezir kaftanı, sefer çizmesi, belinde hançer",
+      "FacialHair": "Kırlaşmış kısa sakal",
+      "Props": ["Sefer defteri", "Mühr-i hümâyun kesesi", "Prut krokisi"],
+      "Forbidden": ["Fes", "Apolet", "Nişan/madalya", "Dürbünlü modern harita aletleri"],
+      "ArtRefNote": "Güvenilir çağdaş portresi yoktur; 18. yy başı vezir tasvirleri (Levnî minyatürleri, Vanmour tabloları) esas alınmalı."
+    },
+    "Personality": "Saraydan yetişme, temkinli, askerin halini gözeten; ihtirastan çok ihtiyat.",
+    "Greeting": "Buyurun serdar. Moskof tabur içinde sıkışmıştır; lâkin bizim askerin de karnı, cephane sandığı kadar mühimdir.",
+    "Prompt": "Çar’ın murahhası sulh diler. Yeniçeri üç gündür hücumdan yorgun, zahire dardır. Şartları bugün mü bağlayalım, yoksa kuşatmanın yükünü göze alıp yarını mı bekleyelim?",
+    "Choices": [
+      {"Id": "A", "Text": "Azak’ı ve hudut kalelerini şarta bağlayıp sulhu akdedelim.", "Reply": "İsabet. Elde olanı sağlama bağlamak, olmayanın ardına düşmekten evlâdır.", "IsAlternate": false, "Unlocks": "C01_Prut.treaty", "Effects": [{"Stat": "PP", "Value": 50}, {"Stat": "Stability", "Value": 4}, {"Stat": "WarSupport", "Value": -3}]},
+      {"Id": "B", "Text": "Çemberi daraltalım; Çar teslim olmadan sulh olmaz.", "Reply": "Öyle ise mesuliyet ikimizin boynunadır. Zahire kollarını bizzat siz çekip çevireceksiniz.", "IsAlternate": true, "Unlocks": "C01_Prut.continue_siege", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Supply", "Value": -12}, {"Stat": "Manpower", "Value": -250}]},
+      {"Id": "C", "Text": "İsveç kralının adamını ve Kırım Hanı’nı da dinleyip öyle karar verelim.", "Reply": "Dinleyelim; ancak her geçen gün Moskof’a nefes, bize masraftır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "PP", "Value": -20}, {"Stat": "Stability", "Value": 2}, {"Stat": "DelayDays", "Value": 14}, {"Stat": "BreakoutChance", "Value": 10}]}
+    ],
+    "HistoricalNote": "Antlaşmadan sonra XII. Karl ve Kırım Hanı Devlet Giray’ın şikâyetleriyle azledildi; 1712’de Limni’de öldü."
+  },
+  {
+    "Name": "NPC02_IbrahimMuteferrika",
+    "FullName": "İbrahim Müteferrika",
+    "Title": "Dergâh-ı Âlî müteferrikası, matbaa kurucusu",
+    "Era": "Era1",
+    "Chapters": ["C02_LaleDevri"],
+    "ActiveFrom": 1727, "ActiveTo": 1745,
+    "InteractKey": "E",
+    "Location": "Sultanselim semtindeki evinin alt katı – Dârü’t-tıbâati’l-âmire, baskı tezgâhı başı",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Orta boy sarık (kalem ehli)",
+      "Clothing": "Koyu çuha cübbe, mürekkep lekeli iş önlüğü, kolları sıvalı",
+      "FacialHair": "Kır sakal",
+      "Props": ["Ahşap baskı tezgâhı", "Dizgi kasası ve kurşun harfler", "Harita levhaları", "Islak formalar"],
+      "Forbidden": ["Askerî kıyafet", "Avrupaî kıyafet"],
+      "ArtRefNote": "Çağdaş portresi bilinmiyor; yaygın temsilî resimler sonradan yapılmıştır."
+    },
+    "Personality": "Macar asıllı, çok dilli, sabırlı bir zanaatkâr-âlim; devlete nizam fikrini kitapla anlatır.",
+    "Greeting": "Hoş geldiniz efendim. Dikkat buyurun, şu forma henüz yaştır.",
+    "Prompt": "Lügat cildi tezgâhtadır; lâkin Leh ve Venedik kâğıdı pahalı gelir, hattat esnafı da rızkından endişelidir. Basmayı sürdürmem için ya kâğıt, ya himaye, ya da vakit lâzım.",
+    "Choices": [
+      {"Id": "A", "Text": "Hazineden kâğıt bedeli tahsis edelim; lügat ve tarih kitapları çıksın.", "Reply": "Allah devlete zeval vermesin. Bin cilt, bin hattatın yıllarca yazacağını bir mevsimde verir.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -15}, {"Stat": "ResearchSpeed", "Value": 6}]},
+      {"Id": "B", "Text": "Evvela harita ve askerlik fenni basın; ordunun işine yarasın.", "Reply": "Nizam-ı asker bahsinde bir risale kaleme almaktayım; haritalarla beraber takdim ederim.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -10}, {"Stat": "Organization", "Value": 3}, {"Stat": "ResearchSpeed", "Value": 3}]},
+      {"Id": "C", "Text": "Yalova’da kâğıt imalathanesi kuralım; dışarıya muhtaç olmayalım.", "Reply": "Uzun iştir, usta ister, su ister; ama doğrusu budur.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -30}, {"Stat": "FactoryEfficiency", "Value": 4}, {"Stat": "DelayDays", "Value": 90}]}
+    ],
+    "HistoricalNote": "1729–1742 arasında 17 eser bastı; “Usûlü’l-hikem fî nizâmi’l-ümem” adlı ıslahat risalesinin yazarıdır. Yalova kâğıt imalathanesi 1740’larda kurulmuştur."
+  },
+  {
+    "Name": "NPC03_DamatIbrahimPasa",
+    "FullName": "Nevşehirli Damat İbrahim Paşa",
+    "Title": "Sadrazam",
+    "Era": "Era1",
+    "Chapters": ["C02_LaleDevri"],
+    "ActiveFrom": 1718, "ActiveTo": 1730,
+    "InteractKey": "F",
+    "Location": "Sâdâbâd Kasrı önü, Kâğıthane deresi kenarı; 1730’da Topkapı Sarayı arz odası önü",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kallâvî, mücevherli sorguç",
+      "Clothing": "Çiçek desenli ağır kemha kaftan, samur kürk",
+      "FacialHair": "Gür, bakımlı kır sakal",
+      "Props": ["Lale soğanı defteri", "Sefaretname nüshası", "Mühür"],
+      "Forbidden": ["Fes", "Askerî üniforma"],
+      "ArtRefNote": "Jean-Baptiste Vanmour’un dönem tabloları ve Levnî’nin Surnâme minyatürleri."
+    },
+    "Personality": "Sulhperver, zarif, uzlaşmacı; sıkıntıyı şenlikle örtmeye meyilli.",
+    "Greeting": "Gel bakalım. Paris’ten gelen sefaretnameyi okudun mu? Frengin bahçesini de, kışlasını da yazmış.",
+    "Prompt": "Acem serhaddinden fena haberler gelir, çarşıda ekmek pahalanır. Şehrin nabzı yükseliyor. Ne dersin, nereden başlayalım?",
+    "Choices": [
+      {"Id": "A", "Text": "Yeni vergileri kaldıralım, esnafın arzuhalini divanda okuyalım.", "Reply": "Hazine sızlanır ama halkın duası alınır. Yazdır fermanı.", "IsAlternate": true, "Unlocks": "C02_LaleDevri.hear_petitions", "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "Treasury", "Value": -20}]},
+      {"Id": "B", "Text": "Padişah ordunun başında Üsküdar’dan sefere çıksın; söylentiler kesilsin.", "Reply": "Ordu Üsküdar’da bekledikçe söz çoğalır. Çıkacaksak çıkalım.", "IsAlternate": true, "Unlocks": "", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Treasury", "Value": -25}, {"Stat": "Stability", "Value": 3}]},
+      {"Id": "C", "Text": "Kâğıthane’de şenlik tertip edelim; şehir oyalansın.", "Reply": "Halk eğlenceyi sever… Yahut biz öyle zannederiz.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "PP", "Value": 15}, {"Stat": "Treasury", "Value": -15}, {"Stat": "Stability", "Value": -6}]}
+    ],
+    "HistoricalNote": "Patrona Halil İsyanı’nda isyancıların talebi üzerine 1 Ekim 1730’da idam edildi."
+  },
+  {
+    "Name": "NPC04_HumbaraciAhmedPasa",
+    "FullName": "Humbaracı Ahmed Paşa (Claude Alexandre, Comte de Bonneval)",
+    "Title": "Humbaracıbaşı, beylerbeyi",
+    "Era": "Era1",
+    "Chapters": ["C03_Humbarahane"],
+    "ActiveFrom": 1731, "ActiveTo": 1747,
+    "InteractKey": "E",
+    "Location": "Üsküdar Humbarahanesi – Hendesehâne talim avlusu, havan topu başı",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "İri beyaz sarık",
+      "Clothing": "Kürk yakalı Osmanlı paşa kaftanı; duruşu ve jestleri Avrupalı subay",
+      "FacialHair": "Uzun beyaz sakal",
+      "Props": ["Pergel ve gönye", "Havan topu kesit çizimi", "Humbara (demir bomba) kalıbı"],
+      "Forbidden": ["Avrupa üniforması (Osmanlı hizmetinde)", "Fes"],
+      "ArtRefNote": "Sarıklı ve sakallı çağdaş portreleri (18. yy gravür ve pastelleri) mevcuttur; doğrudan referans alınabilir."
+    },
+    "Personality": "Mağrur, nüktedan, tecrübeli asker; Fransa ve Avusturya’da generallik yapmış bir maceraperest.",
+    "Greeting": "Yaklaşın efendim, yaklaşın. Havan ısırmaz; hesabı yanlış yapılırsa ısırır.",
+    "Prompt": "Bir humbara yalnız barutla değil, hendeseyle hedef bulur. Mektebin kapısını açarsanız, toprağa gömdüğünüz akçeyi yetişmiş nefer ve mühendis olarak geri alırsınız. Ocak ağaları ise mırıldanır.",
+    "Choices": [
+      {"Id": "A", "Text": "Hendese dersleri ve maaşlı talim hemen başlasın.", "Reply": "Âlâ! Üç yüz nefer verin, bir senede size üç yüz usta teslim edeyim.", "IsAlternate": false, "Unlocks": "C03_Humbarahane.steady_budget", "Effects": [{"Stat": "Treasury", "Value": -25}, {"Stat": "Eq_Artillery", "Value": 120}, {"Stat": "Organization", "Value": 5}]},
+      {"Id": "B", "Text": "Önce dökümhaneyi düzeltelim; mektep sonra.", "Reply": "İyi top lâzım, doğru. Fakat onu nişanlayacak göz yetişmezse pahalı bir çan dökmüş oluruz.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -15}, {"Stat": "FactoryEfficiency", "Value": 8}]},
+      {"Id": "C", "Text": "Ocakların itirazı yatışana dek bekleyelim.", "Reply": "Ben Viyana’da da, Versay’da da beklemeyi öğrenemedim. Burada da öğreneceğimi sanmam.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Stability", "Value": 4}, {"Stat": "PP", "Value": 5}, {"Stat": "DelayDays", "Value": 60}]}
+    ],
+    "HistoricalNote": "1747’de İstanbul’da öldü; kabri Galata Mevlevîhânesi hazîresindedir."
+  },
+  {
+    "Name": "NPC05_KocaRagipPasa",
+    "FullName": "Koca Ragıp Mehmed Paşa",
+    "Title": "Sadrazam",
+    "Era": "Era1",
+    "Chapters": ["C04_RagipPasaSulhu"],
+    "ActiveFrom": 1757, "ActiveTo": 1763,
+    "InteractKey": "F",
+    "Location": "Babıâli – sadaret dairesi, divan odası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kallâvî",
+      "Clothing": "Sade ama kıymetli kürklü kaftan",
+      "FacialHair": "Uzun beyaz sakal",
+      "Props": ["Divit ve kalemdan", "Ferman tomarları", "Divan (şiir) mecmuası", "Kitap rahlesi"],
+      "Forbidden": ["Fes", "Askerî üniforma"],
+      "ArtRefNote": "Yaşlı âlim-vezir tipi; kütüphanesindeki kitabeler ve dönem vezir tasvirleri."
+    },
+    "Personality": "Şair, diplomat, soğukkanlı; sözü mısra gibi tartar.",
+    "Greeting": "Otur evlâdım. Acele işe şeytan karışır; devlet işine ise düşman.",
+    "Prompt": "Frengistan yedi yıldır birbirini yer. Prusya kralı ittifak ister, Nemçe elçisi dostluk yemini eder. Devletin kuvveti yalnız meydanda değil, hazinenin hesabında ve sulhun vaktinde de ölçülür.",
+    "Choices": [
+      {"Id": "A", "Text": "Sulhu koruyalım, hazineyi dolduralım.", "Reply": "Top döktürmek kolaydır; onu besleyecek barutu ve neferi bulmak müşküldür. Evvela kese.", "IsAlternate": false, "Unlocks": "C04_RagipPasaSulhu.peace_and_treasury", "Effects": [{"Stat": "Treasury", "Value": 20}, {"Stat": "Stability", "Value": 5}, {"Stat": "WarSupport", "Value": -2}]},
+      {"Id": "B", "Text": "Sulh sürerken topçuyu ve kaleleri ıslah edelim.", "Reply": "Barışta kılıç bilemek… Ocak hoşlanmaz, hazine sızlanır. Lâkin haksız değilsin.", "IsAlternate": true, "Unlocks": "C04_RagipPasaSulhu.peace_and_reform", "Effects": [{"Stat": "Treasury", "Value": -30}, {"Stat": "Eq_Artillery", "Value": 160}, {"Stat": "Organization", "Value": 3}]},
+      {"Id": "C", "Text": "Taşra gelirlerini derhal merkeze aktaralım.", "Reply": "Âyanın kesesine uzanan el, ısırılmayı da göze almalıdır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": 35}, {"Stat": "PP", "Value": 10}, {"Stat": "Stability", "Value": -8}]}
+    ],
+    "HistoricalNote": "Divan sahibi şairdir; birçok mısraı darbımesel olmuştur. Buradaki sözler alıntı değil, üsluba uygun özgün metindir."
+  },
+  {
+    "Name": "NPC06_CezayirliGaziHasanPasa",
+    "FullName": "Cezayirli Gazi Hasan Paşa",
+    "Title": "Kaptan-ı Derya",
+    "Era": "Era1",
+    "Chapters": ["C05_CesmeVeLimni"],
+    "ActiveFrom": 1770, "ActiveTo": 1789,
+    "InteractKey": "G",
+    "Location": "Haliç – Tersane-i Âmire rıhtımı, kızakta bir kalyonun önü; Kalyoncu Kışlası avlusu",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Büyük beyaz sarık",
+      "Clothing": "Kırmızı çuha kaptan paşa kaftanı, altın sırma kuşak, belinde pala",
+      "FacialHair": "Gür, pos bıyık ve kır sakal; güneş yanığı yüz",
+      "Props": ["Kalyon maketi", "Dürbün (tek gözlü pirinç)", "Deniz haritası (portolan)"],
+      "Forbidden": ["Fes", "Apoletli deniz üniforması"],
+      "ArtRefNote": "18. yy sonuna ait gravürleri vardır. Yanında aslan bulunan tasvirler rivayete dayanır; kullanılacaksa isteğe bağlı kozmetik olarak işaretlenmeli."
+    },
+    "Personality": "Sert, gözü pek, tayfasına düşkün; Cezayir ocağından yetişme denizci.",
+    "Greeting": "Bre hoş geldin! Denizci misin, kalem efendisi mi? Elini göster, anlarım.",
+    "Prompt": "Çeşme’de gemi değil, usta levend kaybettik. Kalyoncu kışın evine dağılır, baharda yarısı dönmez. Bana kışla, kereste ve akçe ver; sana donanma vereyim.",
+    "Choices": [
+      {"Id": "A", "Text": "Kalyoncu Kışlası yapılsın; tayfa yıl boyu maaşlı kalsın.", "Reply": "Hah! İşte şimdi donanma oldu. Gemiyi kereste değil, tayfa yüzdürür.", "IsAlternate": false, "Unlocks": "C05_CesmeVeLimni.limni_relieved", "Effects": [{"Stat": "Treasury", "Value": -30}, {"Stat": "NavalReadiness", "Value": 12}, {"Stat": "Organization", "Value": 5}]},
+      {"Id": "B", "Text": "Tezgâhlara yeni kalyonlar koyalım; sayı lâzım.", "Reply": "Olur. Ama içine koyacak adamı da sen bulacaksın.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -40}, {"Stat": "Eq_Naval", "Value": 3}, {"Stat": "NavalReadiness", "Value": -4}]},
+      {"Id": "C", "Text": "Tersane’de hendese ve seyir dersi açalım.", "Reply": "Ben yıldıza bakıp yol bulurum; gençler kâğıda baksın. Zararı yok, açılsın.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -15}, {"Stat": "ResearchSpeed", "Value": 5}, {"Stat": "NavalReadiness", "Value": 4}]}
+    ],
+    "HistoricalNote": "Kasımpaşa’daki Kalyoncu Kışlası’nı yaptırdı. 1790’da sadrazam ve serdar-ı ekrem iken Şumnu’da öldü."
+  },
+  {
+    "Name": "NPC07_BaronDeTott",
+    "FullName": "François Baron de Tott",
+    "Title": "Fransız topçu subayı, Osmanlı hizmetinde askerî uzman",
+    "Era": "Era1",
+    "Chapters": ["C06_SuratTopculari"],
+    "ActiveFrom": 1770, "ActiveTo": 1776,
+    "InteractKey": "E",
+    "Location": "Çanakkale – Kilitbahir tabyası siperi; İstanbul’da Hasköy dökümhanesi atış sahası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Üç köşeli şapka (tricorne), pudralı peruk",
+      "Clothing": "18. yy Fransız subay ceketi (justaucorps), yelek, diz altı pantolon, binici çizmesi",
+      "FacialHair": "Tıraşlı",
+      "Props": ["Kadran (topçu açıölçeri)", "Tabya planı", "Sahra topu kundak maketi"],
+      "Forbidden": ["Sarık", "Kaftan", "Fes"],
+      "ArtRefNote": "Hatıratının (Mémoires, 1784–85) baskılarındaki gravürler."
+    },
+    "Personality": "Çalışkan, kendini beğenmiş, sabırsız; Türkçe bilir.",
+    "Greeting": "Ah, nihayet! Bana tercüman değil, karar verecek biri lâzımdı.",
+    "Prompt": "Boğazın müdafaası topun büyüklüğünden evvel mevziin ve nişanın hesabına bağlıdır. Şu mermer gülle atan koca toplar heybetlidir, ama saatte bir atar. Bana hafif top, seri atan nefer verin.",
+    "Choices": [
+      {"Id": "A", "Text": "Sürat topçusu ocağını kuralım.", "Reply": "Dakikada üç atım! Göreceksiniz, Rus bunu bizden beklemez.", "IsAlternate": false, "Unlocks": "C06_SuratTopculari.trained_gunners", "Effects": [{"Stat": "Organization", "Value": 10}, {"Stat": "Treasury", "Value": -18}]},
+      {"Id": "B", "Text": "Önce Boğaz’a yeni tabya ve cephanelik.", "Reply": "Makul. Çapraz ateş veren iki batarya, yüz gülleden iyidir.", "IsAlternate": false, "Unlocks": "C06_SuratTopculari.forts", "Effects": [{"Stat": "FortLevel", "Value": 1}, {"Stat": "Eq_Artillery", "Value": -100}]},
+      {"Id": "C", "Text": "Tersane’de duba ve nakliye işine eğilelim.", "Reply": "Köprü kurmayı bilmeyen ordu nehirde boğulur. Peki, çizimleri getireyim.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 8}, {"Stat": "Treasury", "Value": -12}]}
+    ],
+    "HistoricalNote": "1776’da Fransa’ya döndü. Hatıratı Osmanlıları küçümseyen ve kendi payını büyüten bir dille yazılmıştır."
+  },
+  {
+    "Name": "NPC08_SelimIII",
+    "FullName": "Sultan III. Selim",
+    "Title": "Padişah",
+    "Era": "Era2",
+    "Chapters": ["C07_NizamiCedid"],
+    "ActiveFrom": 1789, "ActiveTo": 1807,
+    "InteractKey": "F",
+    "Location": "Levent Çiftliği talim meydanı kenarındaki kasır; Topkapı Sarayı’nda çalışma odası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Selimî kavuk, elmas sorguç",
+      "Clothing": "Kürklü kırmızı kapaniçe, altında sade entari",
+      "FacialHair": "Siyah, dolgun sakal",
+      "Props": ["Ney ve tambur (bestekârdır)", "Nizam-ı Cedid kanunnamesi", "Talim planı"],
+      "Forbidden": ["Fes", "Avrupaî üniforma", "Nişan"],
+      "ArtRefNote": "Konstantin Kapıdağlı’nın 1803 tarihli portresi (Topkapı Sarayı Müzesi)."
+    },
+    "Personality": "Hassas, sanatkâr, ıslahata inanmış; kan dökmekten çekinen.",
+    "Greeting": "Gel. Şu neferlerin yürüyüşüne bak; adımları bir, tüfekleri bir.",
+    "Prompt": "Yeni nizam yalnız tüfeğin ve talimin tecdidi değildir; onu ayakta tutacak hazine ve itimat da lâzımdır. Ocak homurdanır, âyan gücenir, ulema ikiye bölünür. Birliğini hazırla; fakat payitahtın nabzını da dinle.",
+    "Choices": [
+      {"Id": "A", "Text": "İrad-ı Cedid’i ve talimi ne pahasına olursa olsun koruyalım.", "Reply": "Bu yol dardır, biliyorum. Yürümeye mecburuz.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -30}, {"Stat": "Organization", "Value": 12}, {"Stat": "Stability", "Value": -3}]},
+      {"Id": "B", "Text": "Ocak ağaları ve ulema ile bir meşveret meclisi toplayalım.", "Reply": "Söz ile olacaksa kan ile olmasın. Topla.", "IsAlternate": false, "Unlocks": "C07_NizamiCedid.political_compromise", "Effects": [{"Stat": "PP", "Value": -25}, {"Stat": "Stability", "Value": 8}, {"Stat": "Organization", "Value": -3}]},
+      {"Id": "C", "Text": "Yeni taburları payitahtta hazır tutalım; isyan çıkarsa kullanalım.", "Reply": "Kendi kulum üzerine asker sürmek… Buna gönlüm razı değildir; ama tedbiri elden bırakma.", "IsAlternate": true, "Unlocks": "C07_NizamiCedid.use_force", "Effects": [{"Stat": "Manpower", "Value": -200}, {"Stat": "Stability", "Value": 4}, {"Stat": "Organization", "Value": 4}]}
+    ],
+    "HistoricalNote": "“İlhâmî” mahlasıyla şiir yazan ve Sûzidilârâ makamını terkip eden bestekârdır. 28 Temmuz 1808’de öldürüldü."
+  },
+  {
+    "Name": "NPC09_AlemdarMustafaPasa",
+    "FullName": "Alemdar Mustafa Paşa",
+    "Title": "Rusçuk âyanı, Sadrazam",
+    "Era": "Era2",
+    "Chapters": ["C08_Alemdar"],
+    "ActiveFrom": 1808, "ActiveTo": 1808,
+    "InteractKey": "R",
+    "Location": "Babıâli avlusu – Sekban-ı Cedid neferlerinin yoklama yeri",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Sarık (Rumeli usulü, kalın sargı)",
+      "Clothing": "Kürklü vezir kaftanı altında Rumeli âyanı cepkeni, silahlık, çift piştov, yatağan",
+      "FacialHair": "Pala bıyık, kısa sakal",
+      "Props": ["Sadaret mührü", "Sened-i İttifak sureti", "Çakmaklı tüfek"],
+      "Forbidden": ["Fes", "Avrupaî üniforma"],
+      "ArtRefNote": "Güvenilir portresi yoktur; Rumeli âyanı kıyafetleri için 19. yy başı seyyah gravürleri."
+    },
+    "Personality": "Yeniçerilikten gelme, kaba saba, cesur ve sadık; siyaset inceliğinden uzak.",
+    "Greeting": "Lafı uzatma kardaş. İstanbul’un lafı çok, adamı az.",
+    "Prompt": "Payitahtta bir emrin kıymeti, onu tutacak kuvvet kadardır. Yeni askeri kurarız; lâkin Rumeli’den getirdiğim yiğitler memleketine dönmek ister, yeniçeri de diş biler. Kışlanın kapısını ve halkın rızasını birlikte gözetmezsek ateş Babıâli’ye sıçrar.",
+    "Choices": [
+      {"Id": "A", "Text": "Sekban-ı Cedid’i kuralım, maaşını sağlama bağlayalım.", "Reply": "Tamam. Adını değiştirdik, işi değişmedi: talimli asker.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -25}, {"Stat": "Organization", "Value": 10}, {"Stat": "Manpower", "Value": 600}]},
+      {"Id": "B", "Text": "Rumeli kuvvetlerini terhis etmeyin; kış boyu İstanbul’da kalsınlar.", "Reply": "Hududda Moskof var, bunu bilirsin… Peki, yarısı kalsın.", "IsAlternate": true, "Unlocks": "C08_Alemdar.amnesty", "Effects": [{"Stat": "Supply", "Value": -8}, {"Stat": "Stability", "Value": 6}, {"Stat": "ConflictChance", "Value": -20}]},
+      {"Id": "C", "Text": "Yeniçeri kışlalarını önceden kuşatalım.", "Reply": "Ben de bunu derim! Yılanın başı küçükken ezilir.", "IsAlternate": true, "Unlocks": "C08_Alemdar.purge", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Stability", "Value": -15}, {"Stat": "Manpower", "Value": -500}]}
+    ],
+    "HistoricalNote": "Kasım 1808’de Babıâli’de kuşatılınca cephaneliğin infilakıyla öldü; patlamayı kendisinin ateşlediği anlatılır."
+  },
+  {
+    "Name": "NPC10_MahmudII",
+    "FullName": "Sultan II. Mahmud",
+    "Title": "Padişah",
+    "Era": "Era2",
+    "Chapters": ["C09_VakaiHayriye"],
+    "ActiveFrom": 1826, "ActiveTo": 1839,
+    "InteractKey": "F",
+    "Location": "Beyazıt – Serasker Kapısı avlusu, yangın kulesinin gölgesi; Rami Kışlası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "1826: sarık ve sorguç. 1829 sonrası: püsküllü fes, elmas sorguç",
+      "Clothing": "1826: kürklü kaftan. 1829 sonrası: koyu lacivert setre, pantolon, pelerin (harmani), kılıç",
+      "FacialHair": "Kısa kesilmiş siyah sakal",
+      "Props": ["Sancak-ı Şerif (1826 sahnesi)", "Mansûre kanunnamesi", "Islahat haritası"],
+      "Forbidden": ["1826 sahnesinde fes", "Geç dönem (Abdülhamid tipi) nişan dizisi"],
+      "ArtRefNote": "İki model varyantı şart: kıyafet inkılâbı öncesi ve sonrası portreleri (Topkapı ve Dolmabahçe koleksiyonları)."
+    },
+    "Personality": "Sabırlı, kararlı, sert; on sekiz yıl bekleyip tek hamlede vuran.",
+    "Greeting": "Yaklaş. Bugünü on sekiz yıl bekledim; bir gün daha beklemeye tahammülüm yoktur.",
+    "Prompt": "Ocağın ilgasıyla meydan boş kalmamalı; nizamı, maaşı ve talimi olan yeni asker derhal teşkil olunmalıdır. Devletin emri her vilayette aynı açıklıkla işitilsin.",
+    "Choices": [
+      {"Id": "A", "Text": "Asâkir-i Mansûre taburlarını ve kışlalarını hemen kuralım.", "Reply": "Serasker’e söyle: yarın sabah ilk yoklamayı ben alacağım.", "IsAlternate": false, "Unlocks": "C09_VakaiHayriye.institutional", "Effects": [{"Stat": "PP", "Value": -35}, {"Stat": "Treasury", "Value": -30}, {"Stat": "Manpower", "Value": 1400}, {"Stat": "Organization", "Value": 8}]},
+      {"Id": "B", "Text": "Önce maaş ve iaşe defterini düzeltelim; ulûfe esamesi satılmasın.", "Reply": "Doğrudur. Ocağı batıran kılıç değil, esame kâğıdıdır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -20}, {"Stat": "Stability", "Value": 7}, {"Stat": "DelayDays", "Value": 45}]},
+      {"Id": "C", "Text": "Mektep açalım: zabiti olmayan ordu, başsız gövdedir.", "Reply": "Tıbhâne ile başla, Harbiye ardından gelsin. Frenk’ten muallim getirt; ama dizgini elden bırakma.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -25}, {"Stat": "ResearchSpeed", "Value": 6}, {"Stat": "Organization", "Value": 4}]}
+    ],
+    "HistoricalNote": "Beyazıt Yangın Kulesi’nin bugünkü kâgir yapısı 1828’de yapıldı; 1826 sahnesinde ahşap kule veya boş avlu modellenmeli."
+  },
+  {
+    "Name": "NPC11_OmerLutfiPasa",
+    "FullName": "Ömer Lütfi Paşa",
+    "Title": "Serdar-ı Ekrem, Rumeli Ordusu Müşiri",
+    "Era": "Era2",
+    "Chapters": ["C10_ZeytinburnuVeKirim"],
+    "ActiveFrom": 1853, "ActiveTo": 1856,
+    "InteractKey": "T",
+    "Location": "Şumnu karargâhı – telgraf ve menzil kalemi; Tuna kıyısında Kalafat tabyası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes (koyu kırmızı, mavi püskül)",
+      "Clothing": "Tanzimat dönemi müşir setresi: lacivert, sırma işlemeli yaka ve kol, kırmızı şeritli pantolon, süvari çizmesi",
+      "FacialHair": "Kır, kısa sakal ve bıyık",
+      "Props": ["Sahra dürbünü", "Tuna haritası", "Telgraf şeritleri", "Mecidî nişanı"],
+      "Forbidden": ["Kalpak", "Sarık"],
+      "ArtRefNote": "Roger Fenton’ın 1855 Kırım fotoğrafları arasında portresi vardır."
+    },
+    "Personality": "Hırvat asıllı, Avusturya ordusundan gelme; disiplinli, soğuk, usta bir savunma kumandanı.",
+    "Greeting": "Vaktim dardır; siz de kısa konuşun. Rus kısa konuşmaz, top atar.",
+    "Prompt": "Nehir boyundaki her mevziden haber karargâha vaktinde varmalıdır. Telgrafın sözü hızlıdır; fakat teli, direği ve onu koruyacak neferi ihmal ederseniz susar. Müttefik de yardım eder, ama bedelini sorar.",
+    "Choices": [
+      {"Id": "A", "Text": "Şumnu’ya kadar tel çekilsin, hat boyuna muhafız konsun.", "Reply": "Güzel. Bir tel, bir süvari alayından fazla iş görür.", "IsAlternate": false, "Unlocks": "C10_ZeytinburnuVeKirim.line_security", "Effects": [{"Stat": "Supply", "Value": 10}, {"Stat": "PP", "Value": -15}, {"Stat": "Manpower", "Value": -100}]},
+      {"Id": "B", "Text": "Mühimmatı Silistre ve Kalafat tabyalarına yığalım.", "Reply": "Tabya dayanır. Yeter ki içindeki aç kalmasın.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Eq_Artillery", "Value": 150}, {"Stat": "Treasury", "Value": -25}]},
+      {"Id": "C", "Text": "İkmali müttefik nakliye gemilerine bağlayalım.", "Reply": "Kolay yol. Kolay yolun faturası savaştan sonra gelir.", "IsAlternate": false, "Unlocks": "C10_ZeytinburnuVeKirim.foreign_purchase", "Effects": [{"Stat": "Supply", "Value": 15}, {"Stat": "PP", "Value": 10}, {"Stat": "ForeignDependence", "Value": 10}]}
+    ],
+    "HistoricalNote": "Asıl adı Mihajlo Latas’tır. 1855’te Gözleve’de Rus taarruzunu püskürttü."
+  },
+  {
+    "Name": "NPC12_HobartPasa",
+    "FullName": "Hobart Paşa (Augustus Charles Hobart-Hampden)",
+    "Title": "Osmanlı Donanması’nda amiral (ferik, sonra müşir)",
+    "Era": "Era3",
+    "Chapters": ["C11_ZirhliDonanma"],
+    "ActiveFrom": 1868, "ActiveTo": 1886,
+    "InteractKey": "G",
+    "Location": "Haliç – Tersane-i Âmire rıhtımı, demirli bir zırhlı firkateynin iskelesi",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "Osmanlı bahriye amiral setresi: lacivert, çift sıra düğme, sırma kol şeritleri",
+      "FacialHair": "Uzun, çatallı beyaz favori ve sakal (Viktorya tarzı)",
+      "Props": ["Deniz dürbünü", "Gemi jurnali", "Osmanî nişanı"],
+      "Forbidden": ["Britanya Kraliyet Donanması üniforması", "Sarık"],
+      "ArtRefNote": "1870’lerin fotoğrafları ve Vanity Fair karikatürü (1878)."
+    },
+    "Personality": "Eski abluka kaçakçısı, maceracı, açık sözlü; gemiyi limanda çürütenlere tahammülsüz.",
+    "Greeting": "Efendim! Güzel gemiler, değil mi? Yazık ki bacalarından duman çıkmıyor.",
+    "Prompt": "Zırhlı satın almak kolaydır; onu yürütecek çarkçıyı, nişan alacak topçuyu yetiştirmek yıllar ister. Gemi Haliç’te yattıkça kazanı paslanır, tayfası kayıkçı olur. Ya denize çıkalım, ya da bu kadar gemiyi almayalım.",
+    "Choices": [
+      {"Id": "A", "Text": "Filo her yaz Akdeniz’de talime çıksın.", "Reply": "Kömür yakmadan denizci olunmaz. İlk seyir Suda Koyu’na!", "IsAlternate": false, "Unlocks": "C11_ZirhliDonanma.maintained_fleet", "Effects": [{"Stat": "NavalReadiness", "Value": 15}, {"Stat": "Treasury", "Value": -30}]},
+      {"Id": "B", "Text": "Çarkçı ve topçu mektebi açalım; yabancı makinistlere muhtaç olmayalım.", "Reply": "Benim gibilere ihtiyacınız kalmasın, öyle mi? Bravo. Doğrusu da bu.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -20}, {"Stat": "NavalReadiness", "Value": 8}, {"Stat": "ForeignDependence", "Value": -8}]},
+      {"Id": "C", "Text": "Yeni zırhlı siparişi verelim; sayı caydırır.", "Reply": "Sayı gazeteleri caydırır efendim, düşmanı değil.", "IsAlternate": false, "Unlocks": "C11_ZirhliDonanma.big_fleet", "Effects": [{"Stat": "Eq_Naval", "Value": 2}, {"Stat": "Debt", "Value": 25}, {"Stat": "Stability", "Value": -4}]}
+    ],
+    "HistoricalNote": "Girit isyanı sırasında (1867–1869) ablukayı yönetti; 93 Harbi’nde Karadeniz filosuna komuta etti."
+  },
+  {
+    "Name": "NPC13_GaziOsmanPasa",
+    "FullName": "Gazi Osman Nuri Paşa",
+    "Title": "Müşir, Plevne Müdafii",
+    "Era": "Era3",
+    "Chapters": ["C12_PlevneVeAziziye"],
+    "ActiveFrom": 1877, "ActiveTo": 1877,
+    "InteractKey": "R",
+    "Location": "Plevne – tabya gerisindeki toprak örtülü karargâh sığınağı, nefer yoklaması",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "Lacivert müşir setresi üzerine kalın asker kaputu, çamurlu çizme",
+      "FacialHair": "Gür, dolgun siyah sakal (kırlaşmaya başlamış), bıyık",
+      "Props": ["Yıpranmış harita", "Dürbün", "Kılıç", "Göğüste yalnız bir-iki nişan"],
+      "Forbidden": ["Kalpak", "Savaş sonrası aldığı nişanların tamamı", "Mavzer tüfeği (neferlerde Peabody-Martini/Winchester)"],
+      "ArtRefNote": "1877–78 fotoğrafları ve teslim sahnesini gösteren dönem gravürleri."
+    },
+    "Personality": "Az konuşur, dindar, neferiyle aynı tayını yer; inatçı ve metin.",
+    "Greeting": "Hoş geldin evlâdım. Çorbadan bir kaşık al, sonra konuşuruz. Neferin yediğini yemeyen, neferin çektiğini bilmez.",
+    "Prompt": "Plevne’nin müdafaası tabyadan ibaret değildir; iaşe, sıhhiye ve neferin sabrı da hattın parçasıdır. Çember kapandı. Elde kırk günlük erzak, sayılı fişek var. Hangi kuvveti muhafaza edeceğiz?",
+    "Choices": [
+      {"Id": "A", "Text": "Tayını azaltıp müdafaaya devam edelim; yardım gelebilir.", "Reply": "Sabır da bir silahtır. Lâkin onun da cephanesi tükenir, unutma.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Organization", "Value": 8}, {"Stat": "Supply", "Value": 5}, {"Stat": "Manpower", "Value": -100}]},
+      {"Id": "B", "Text": "Kuvvetimiz yerindeyken huruç edip çemberi yaralım.", "Reply": "Yaralıları bırakmak ağır gelir… Ama aç askerle huruç olmaz. Vid köprüsünden, şafakla.", "IsAlternate": false, "Unlocks": "C12_PlevneVeAziziye.historical_breakout", "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Encirclement", "Value": -20}, {"Stat": "Manpower", "Value": -900}]},
+      {"Id": "C", "Text": "Şimendifer hattından ikmal katarı sokalım.", "Reply": "O hat döşenmiş olsaydı bu bahsi hiç açmazdık. Madem var, katarı geceleyin yürütün.", "IsAlternate": true, "Unlocks": "C12_PlevneVeAziziye.rail_supply_whatif", "Effects": [{"Stat": "Supply", "Value": 20}, {"Stat": "PP", "Value": -30}, {"Stat": "SabotageRisk", "Value": 15}]}
+    ],
+    "HistoricalNote": "C seçeneği yalnız “Plevne İkmal Hattı” odağı tamamlanmışsa görünür. Teslimde yaralıydı; Çar II. Aleksandr kılıcını iade etti."
+  },
+  {
+    "Name": "NPC14_GaziAhmedMuhtarPasa",
+    "FullName": "Gazi Ahmed Muhtar Paşa",
+    "Title": "Müşir, Anadolu Ordusu Kumandanı",
+    "Era": "Era3",
+    "Chapters": ["C12_PlevneVeAziziye"],
+    "ActiveFrom": 1877, "ActiveTo": 1878,
+    "InteractKey": "F",
+    "Location": "Erzurum – kale içindeki karargâh, harita masası; Mecidiye tabyası rasat mevkii",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "Müşir setresi, kürk yakalı kışlık kaput, eldiven",
+      "FacialHair": "Kır sakal ve bıyık",
+      "Props": ["Erzurum tahkimat planı", "Rasat dürbünü ve pusula", "Takvim/astronomi cetvelleri"],
+      "Forbidden": ["Kalpak"],
+      "ArtRefNote": "1877–78 fotoğrafları. Astronomi ve takvim ilmine merakı (ileride “Islâhü’t-takvîm” yazarı) masadaki eşyalarla ima edilebilir."
+    },
+    "Personality": "Mühendis kafalı, hesapçı, soğukkanlı; riyaziye ve heyet ilmine meraklı.",
+    "Greeting": "Kar yağacak. Barometre düşüyor; Moskof da bunu bilir.",
+    "Prompt": "Erzurum’un kapısı tabyadır; fakat bu kapının ardında ahali ve kışlık iaşe vardır. Deveboynu’ndan yorgun döndük. Mevziyi tutarken şehrin müdafaasını da tertip edelim.",
+    "Choices": [
+      {"Id": "A", "Text": "Aziziye ve Mecidiye tabyalarına cephane ve çift nöbet.", "Reply": "Gece baskınına karşı tek ilaç uyanık nöbetçidir. Emri yazın.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "FortLevel", "Value": 1}, {"Stat": "Eq_Artillery", "Value": -80}]},
+      {"Id": "B", "Text": "Ahaliyi müdafaaya ortak edelim; kadın, çocuk ve yaralıyı iç mahallelere alalım.", "Reply": "Erzurumlu dadaştır, çağırmadan gelir. Biz ona yol gösterelim yeter.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Stability", "Value": 6}, {"Stat": "WarSupport", "Value": 5}, {"Stat": "Supply", "Value": -5}]},
+      {"Id": "C", "Text": "İhtiyatları şehir dışında toplayıp karşı taarruza hazırlayalım.", "Reply": "Elimizdeki son ihtiyattır; hesabını iyi yapalım.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Organization", "Value": 7}, {"Stat": "Manpower", "Value": -150}]}
+    ],
+    "HistoricalNote": "1912’de sadrazam oldu. Hatıratı “Sergüzeşt-i Hayâtım” bu cephe için birincil kaynaktır."
+  },
+  {
+    "Name": "NPC15_NeneHatun",
+    "FullName": "Nene Hatun",
+    "Title": "Erzurumlu sivil; Aziziye müdafaasına katılan halkın simgesi",
+    "Era": "Era3",
+    "Chapters": ["C12_PlevneVeAziziye"],
+    "ActiveFrom": 1877, "ActiveTo": 1877,
+    "InteractKey": "R",
+    "Location": "Erzurum – Aziziye tabyası yolu, şafak vakti; halkın toplandığı tabya eteği",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Erzurum ehramı (yün örtü) ve yazma",
+      "Clothing": "Yöresel uzun entari, yün şal kuşak, yemeni/çarık; yirmi yaşlarında genç bir kadın",
+      "FacialHair": "",
+      "Props": ["Satır veya balta (kaynak anlatısına göre)", "Ele geçirilmiş bir tüfek (sahne sonu)"],
+      "Forbidden": ["Askerî üniforma", "Yaşlı kadın modeli (1877’de gençtir)", "Abartılı savaşçı zırhı/kostümü"],
+      "ArtRefNote": "Bilinen fotoğrafları yaşlılık dönemine (1950’ler) aittir; 1877 modeli için Erzurum yöresi 19. yy kadın giyimi etnografik kaynaklardan doğrulanmalı."
+    },
+    "Personality": "Kararlı, az sözlü; kardeşini yeni kaybetmiş, bebeğini evde bırakıp tabyaya koşan genç bir anne.",
+    "Greeting": "Paşa oğlum, yol ver. Tabyada kardaşım yatıyor.",
+    "Prompt": "Minareden seslendiler, duyan evinden çıktı. Elinde tüfeği olan tüfeğiyle, olmayan baltasıyla geldi. Sen zabitsin; söyle, bu kalabalığı nereye süreceksin?",
+    "Choices": [
+      {"Id": "A", "Text": "Halkı askerin gerisinde tutup tabyaya birlikte hücum edelim.", "Reply": "Geride durmaya gelmedik. Ama sen bilirsin; önde yürü, ardındayız.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Morale", "Value": 12}, {"Stat": "Manpower", "Value": -120}]},
+      {"Id": "B", "Text": "Kadınlar ve yaşlılar yaralı taşısın, cephane ve su getirsin.", "Reply": "Su da taşırız, yaralı da. Lâkin kapıya dayanan düşmana sırtımızı dönmeyiz.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 6}, {"Stat": "Stability", "Value": 5}, {"Stat": "Morale", "Value": 5}]},
+      {"Id": "C", "Text": "Siviller geri dönsün; bu iş askerin işidir.", "Reply": "Burası bizim evimiz oğul. Evini bırakıp giden görülmüş mü?", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Stability", "Value": -4}, {"Stat": "WarSupport", "Value": -6}, {"Stat": "CivilianCasualtyRisk", "Value": -15}]}
+    ],
+    "HistoricalNote": "1955’te Erzurum’da vefat etti. Hakkındaki anlatıların büyük kısmı geç dönem röportaj ve hatıralara dayanır; diyalog bütünüyle özgündür ve saygılı bir temsil gözetilmelidir."
+  },
+  {
+    "Name": "NPC16_GoltzPasa",
+    "FullName": "Colmar Freiherr von der Goltz (Goltz Paşa)",
+    "Title": "Alman kurmay subayı; Osmanlı askerî mektepleri müfettişi",
+    "Era": "Era3",
+    "Chapters": ["C13_MavzerVeKrupp"],
+    "ActiveFrom": 1883, "ActiveTo": 1895,
+    "InteractKey": "R",
+    "Location": "Pangaltı – Mekteb-i Harbiye talim avlusu ve harp oyunu salonu",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "Osmanlı ferik/müşir setresi; Prusyalı duruşu",
+      "FacialHair": "Kır bıyık, kısa sakal",
+      "Props": ["Kalın camlı yuvarlak gözlük (belirleyici özellik)", "Kriegsspiel haritası ve birlik blokları", "“Millet-i Müsellaha” tercümesi"],
+      "Forbidden": ["Pickelhaube (Osmanlı hizmetinde)", "1914–16 dönemi mareşal üniforması bu çağda"],
+      "ArtRefNote": "1880–90’lar İstanbul fotoğrafları. 1915–16’daki ikinci Osmanlı görevi için ayrı, yaşlı varyant gerekir."
+    },
+    "Personality": "Hoca tabiatlı, sabırlı, öğrencilerine düşkün; teorisyen ve yazar.",
+    "Greeting": "Ah, buyurun. Zabit adaylarım tam da haritada Balkan geçitlerini müdafaa ediyordu. Fena değiller.",
+    "Prompt": "İyi tüfek satın alınır; iyi zabit yetiştirilir. Bana yirmi sene ve çalışkan gençler verin. Bu arada komisyon tüfek meselesini soruyor; Mavzer mekanizması tecrübede hepsinden üstün çıktı. Fakat ne kadar ve nasıl alacağınız sizin kararınızdır.",
+    "Choices": [
+      {"Id": "A", "Text": "Harbiye’de erkân-ı harp sınıflarını genişletelim, tatbikat ve harp oyununu mecburi kılalım.", "Reply": "Mükemmel. Bugünün mülazımı, yirmi sene sonranın ordu kumandanıdır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -20}, {"Stat": "Organization", "Value": 12}, {"Stat": "ResearchSpeed", "Value": 4}]},
+      {"Id": "B", "Text": "Büyük Mavzer ve Krupp siparişini imzalayalım.", "Reply": "Piyadeniz Avrupa’nın en iyi tüfeğine sahip olacak. Taksitleri aksatmayınız.", "IsAlternate": false, "Unlocks": "C13_MavzerVeKrupp.import_all", "Effects": [{"Stat": "Eq_Infantry", "Value": 300}, {"Stat": "Eq_Artillery", "Value": 60}, {"Stat": "Debt", "Value": 15}, {"Stat": "ForeignDependence", "Value": 10}]},
+      {"Id": "C", "Text": "Tüfeği alalım, fişeği ve tamiri Tophane’de yapalım.", "Reply": "Fabrikatörler bundan hoşlanmaz. Ben askerim, tüccar değil: akıllıca.", "IsAlternate": true, "Unlocks": "C13_MavzerVeKrupp.import_plus_ammo", "Effects": [{"Stat": "Eq_Infantry", "Value": 200}, {"Stat": "FactoryEfficiency", "Value": 8}, {"Stat": "Treasury", "Value": -35}]}
+    ],
+    "HistoricalNote": "1915’te Osmanlı ordusuna döndü; Nisan 1916’da Bağdat’ta tifüsten öldü, Tarabya’ya defnedildi."
+  },
+  {
+    "Name": "NPC17_WilhelmVonPressel",
+    "FullName": "Wilhelm von Pressel",
+    "Title": "Avusturyalı demiryolu mühendisi; Osmanlı demiryolları umum müdürü/müşaviri",
+    "Era": "Era3",
+    "Chapters": ["C14_Demiryollari"],
+    "ActiveFrom": 1869, "ActiveTo": 1900,
+    "InteractKey": "T",
+    "Location": "Sirkeci – istasyon plan odası, çizim masası",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Başı açık; dışarıda melon şapka",
+      "Clothing": "Koyu redingot, yelek, köstekli saat",
+      "FacialHair": "Uzun beyaz sakal",
+      "Props": ["Plan ruloları", "Teodolit", "Eğim cetveli", "Anadolu haritası üzerinde kırmızı kalemle çizilmiş hat"],
+      "Forbidden": ["Osmanlı paşa üniforması", "Fes (resmî görevli değil, mühendis kimliğiyle)"],
+      "ArtRefNote": "Geç dönem fotoğraf portresi mevcuttur."
+    },
+    "Personality": "İdealist, kırgın; hattın yabancı sermayeye değil Osmanlı devletine ait olmasını savunan mühendis.",
+    "Greeting": "Buyurun. Ayağınızın altındaki ruloya basmayın lütfen; o Bağdat’a kadar gidiyor.",
+    "Prompt": "Ray, ancak köprü, su deposu, bakım atölyesi ve işletme nizamı tamam olursa asker taşır. Kilometre garantisi verilen şirket hattı uzatmak için kıvırır, devlet öder. Güzergâhı çizmek kolay; onu bütün yıl işler tutmak asıl hesaptır.",
+    "Choices": [
+      {"Id": "A", "Text": "Kritik köprülere ve bakım atölyelerine yatırım yapalım.", "Reply": "Sonunda rayın altına bakan biri! Atölyesi olmayan hat on senede hurdadır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -35}, {"Stat": "Supply", "Value": 12}, {"Stat": "FactoryEfficiency", "Value": 4}]},
+      {"Id": "B", "Text": "Hattı şirket eliyle hızla uzatalım; garantiyi verelim.", "Reply": "Hızlı olur. Dümdüz ovada kıvrıla kıvrıla giden bir hat olur. Siz bilirsiniz.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 8}, {"Stat": "Debt", "Value": 12}, {"Stat": "SabotageRisk", "Value": 10}]},
+      {"Id": "C", "Text": "Devlet eliyle, dar hatla ve ucuza yapalım.", "Reply": "Yıllardır söylediğim budur. Yavaş, ama sizin olur.", "IsAlternate": true, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -20}, {"Stat": "ForeignDependence", "Value": -10}, {"Stat": "DelayDays", "Value": 120}]}
+    ],
+    "HistoricalNote": "Anadolu–Bağdat hattı tasarıları gerçekleşmeden, imtiyaz Alman sermayesine verildi; 1902’de İstanbul’da öldü."
+  },
+  {
+    "Name": "NPC18_MeissnerPasa",
+    "FullName": "Heinrich August Meissner (Meissner Paşa)",
+    "Title": "Hicaz Demiryolu Başmühendisi",
+    "Era": "Era3",
+    "Chapters": ["C14_Demiryollari"],
+    "ActiveFrom": 1901, "ActiveTo": 1917,
+    "InteractKey": "T",
+    "Location": "Hicaz hattı ray başı – çadır büro; Maan istasyonu su deposu önü",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes; sahada güneşlik bezli şapka",
+      "Clothing": "Açık renk keten saha ceketi, tozlu binici pantolonu ve tozluk; törenlerde paşa setresi",
+      "FacialHair": "Pos bıyık",
+      "Props": ["Nivelman aleti", "Köprü kesit çizimi", "Su analiz şişeleri", "Mecidî/Osmanî nişanı (yalnız tören varyantı)"],
+      "Forbidden": ["Sarık", "Şark Demiryolları sahnelerinde kullanım"],
+      "ArtRefNote": "Hicaz hattı inşaat fotoğrafları (1900–1908 albümleri)."
+    },
+    "Personality": "Pratik, yorulmaz, Türkçe konuşan saha mühendisi; askerle aynı çadırda yatar.",
+    "Greeting": "Selamünaleyküm paşam. Kusura bakmayın, elim yağlı.",
+    "Prompt": "Çölde düşman kum değil, susuzluktur. Lokomotif suyun yarısını kendi vagonunda taşıyor. Amele taburu iyi çalışır ama sıcakta kırılıyor; urban da deve kirasını kaybetmekten korkar. Ray ilerleyecekse üçünü de düşünmeliyiz.",
+    "Choices": [
+      {"Id": "A", "Text": "Her istasyona sarnıç, kuyu ve su kulesi.", "Reply": "Pahalıdır, yavaştır; ama o zaman bu hat elli sene çalışır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -30}, {"Stat": "Supply", "Value": 14}, {"Stat": "DelayDays", "Value": 60}]},
+      {"Id": "B", "Text": "Amele taburlarına ek tayın ve yevmiye; ray günde iki kilometre ilerlesin.", "Reply": "Asker böyle çalışırsa Medine’yi padişahın cülus gününe yetiştiririz.", "IsAlternate": false, "Unlocks": "C14_Demiryollari.donation_network", "Effects": [{"Stat": "Treasury", "Value": -20}, {"Stat": "Organization", "Value": 4}, {"Stat": "Manpower", "Value": -80}, {"Stat": "PP", "Value": 15}]},
+      {"Id": "C", "Text": "Kabile şeyhleriyle anlaşalım: hattın bekçiliği onlara verilsin.", "Reply": "Akıllıca. Rayın en iyi bekçisi, ondan ekmek yiyendir.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -15}, {"Stat": "SabotageRisk", "Value": -15}, {"Stat": "Stability", "Value": 4}]}
+    ],
+    "HistoricalNote": "Gayrimüslim olduğu için hattın Medine’ye yakın kutsal bölge kesiminde çalışmayı Müslüman mühendisler (Muhtar Bey vd.) yürüttü; NPC Medine sahnesinde görünmemeli."
+  },
+  {
+    "Name": "NPC19_EdhemPasa",
+    "FullName": "Gazi Edhem Paşa",
+    "Title": "Müşir, Alasonya (Tesalya) Ordusu Başkumandanı",
+    "Era": "Era3",
+    "Chapters": ["C15_DomekedenMeclise"],
+    "ActiveFrom": 1897, "ActiveTo": 1897,
+    "InteractKey": "F",
+    "Location": "Alasonya karargâhı; Dömeke sırtlarını gören rasat tepesi",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "Müşir setresi, sırma kordon, süvari çizmesi",
+      "FacialHair": "Kır, dolgun sakal",
+      "Props": ["Tesalya haritası", "Dürbün", "Sahra telgraf pusulaları"],
+      "Forbidden": ["Kalpak", "1908 sonrası haki üniforma"],
+      "ArtRefNote": "1897 savaş fotoğrafları ve dönemin resimli gazeteleri (Servet-i Fünûn, The Graphic)."
+    },
+    "Personality": "Plevne gazisi; ağırbaşlı, temkinli, Yıldız’dan gelen telgraflarla araziyi uzlaştırmaya çalışan kumandan.",
+    "Greeting": "Hoş geldin. Yıldız’dan yine telgraf var; saray haritaya bakar, ben araziye.",
+    "Prompt": "Asker iyi dövüşüyor, Mavzerli taburlar ateş üstünlüğünü aldı. Dömeke önümüzde. Lâkin düvel-i muazzama sefirleri nota hazırlıyormuş. Meydanda kazandığımızı masada ne kadar tutabiliriz?",
+    "Choices": [
+      {"Id": "A", "Text": "Dömeke’yi alıp duralım; mütarekeyi kuvvetli elden yapalım.", "Reply": "Ben de böyle düşünürüm. Zaferi yerinde bırakmayı bilmek de kumandanlıktır.", "IsAlternate": false, "Unlocks": "C15_DomekedenMeclise.armistice", "Effects": [{"Stat": "WarSupport", "Value": 6}, {"Stat": "PP", "Value": 30}, {"Stat": "Stability", "Value": 6}]},
+      {"Id": "B", "Text": "Furka Geçidi’ni aşıp Atina yoluna inelim.", "Reply": "Asker gider. Arkasından gelecek donanma notasını da sen karşılarsın.", "IsAlternate": true, "Unlocks": "C15_DomekedenMeclise.advance", "Effects": [{"Stat": "WarSupport", "Value": 10}, {"Stat": "Manpower", "Value": -900}, {"Stat": "ForeignPressure", "Value": 20}]},
+      {"Id": "C", "Text": "Durup menzili toparlayalım; redif taburları yorgun.", "Reply": "Redif çiftçidir, tarlasını düşünür. Haklısın, nefes aldıralım.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 10}, {"Stat": "Organization", "Value": 5}, {"Stat": "DelayDays", "Value": 10}]}
+    ],
+    "HistoricalNote": "Savaştan sonra “Gazi” unvanı verildi."
+  },
+  {
+    "Name": "NPC20_MahmudSevketPasa",
+    "FullName": "Mahmud Şevket Paşa",
+    "Title": "Üçüncü Ordu ve Hareket Ordusu Kumandanı; sonra Harbiye Nazırı ve Sadrazam",
+    "Era": "Era4",
+    "Chapters": ["C16_HareketOrdusu"],
+    "ActiveFrom": 1909, "ActiveTo": 1913,
+    "InteractKey": "F",
+    "Location": "Ayastefanos karargâhı (1909); Beyazıt – Harbiye Nezareti makam odası (1910–1913)",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes (1909); kalpak (1909 sonrası bazı sahra fotoğraflarında)",
+      "Clothing": "Ferik/birinci ferik setresi, sonra müşir üniforması; kordon ve apolet",
+      "FacialHair": "Uzun, köşeli kır sakal (belirleyici özellik)",
+      "Props": ["Telgraf pusulaları", "İstanbul şehir planı", "Günlük defteri"],
+      "Forbidden": ["1909 sahnesinde sadrazam alameti"],
+      "ArtRefNote": "1909–1913 fotoğrafları; suikast günü bindiği otomobil İstanbul Askerî Müzesi’ndedir."
+    },
+    "Personality": "Bağdatlı, Almanya’da silah komisyonlarında yıllarca çalışmış teknik subay; kuralcı, mesafeli, otoriter.",
+    "Greeting": "Selam durmayı uzatmayın. Tekmilinizi verin.",
+    "Prompt": "Payitahta giren ordu nizama riayet etmezse, müdahale ettiği buhranı büyütür. Sefaretler bizi seyrediyor. Birlikleri sevk ederken sivil mahalleri, ecnebi tebaayı ve meclisin emniyetini gözeteceksiniz.",
+    "Choices": [
+      {"Id": "A", "Text": "Kontrollü ilerleyiş: kışlalar çevrilsin, kamu binaları korunsun.", "Reply": "Doğru. Bir tek yağma vakası işitirsem faili divan-ı harbe veririm.", "IsAlternate": false, "Unlocks": "C16_HareketOrdusu.controlled_entry", "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "Organization", "Value": -2}]},
+      {"Id": "B", "Text": "Hızla girip bir günde bütün şehri tutalım.", "Reply": "Sürat lâzımdır; fakat sokak muharebesi nizamı bozar. Mesuliyet sizindir.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Organization", "Value": 8}, {"Stat": "Stability", "Value": -10}, {"Stat": "CivilianCasualtyRisk", "Value": 15}]},
+      {"Id": "C", "Text": "Evvela telgrafla teslim ve silah bırakma çağrısı yapalım.", "Reply": "Deneyiniz. Kan dökülmeden biterse hepimiz için hayırlıdır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "PP", "Value": 20}, {"Stat": "ConflictChance", "Value": -10}, {"Stat": "DelayDays", "Value": 2}]}
+    ],
+    "HistoricalNote": "11 Haziran 1913’te sadrazamken Beyazıt’ta otomobilinde suikasta kurban gitti."
+  },
+  {
+    "Name": "NPC21_RaufBey",
+    "FullName": "Hüseyin Rauf Bey (Orbay)",
+    "Title": "Hamidiye Kruvazörü Süvarisi (Yüzbaşı/Binbaşı)",
+    "Era": "Era4",
+    "Chapters": ["C18_CatalcaVeEdirne"],
+    "ActiveFrom": 1912, "ActiveTo": 1913,
+    "InteractKey": "G",
+    "Location": "Hamidiye kruvazörü köprüüstü; kömür ikmal iskelesi",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Fes",
+      "Clothing": "1909 nizamnamesine göre lacivert deniz subayı ceketi, kol şeritleri; kömür tozlu beyaz eldiven",
+      "FacialHair": "Bakımlı siyah bıyık, tıraşlı çene; otuz yaşlarında",
+      "Props": ["Deniz dürbünü", "Seyir haritası ve paralel cetvel", "Telsiz pusulası"],
+      "Forbidden": ["Cumhuriyet dönemi sivil kıyafeti", "Kasket"],
+      "ArtRefNote": "1913 Hamidiye fotoğrafları ve dönüşteki karşılama kartpostalları."
+    },
+    "Personality": "Centilmen, İngilizce bilen, tayfasınca sevilen; cüretkâr ama hesaplı.",
+    "Greeting": "Hoş geldiniz. Güverte kömür tozu içindedir, kusura bakmayın; az evvel ikmali bitirdik.",
+    "Prompt": "Hamidiye’nin sürati bize teşebbüs verir; lâkin kömür ve makine bakımı olmadan denizde kalamayız. Bir gemiyle donanma yenilmez, ama düşmanın uykusu kaçırılır. Hedefi seçelim; her akın dönüş yolunun hesabıyla başlar.",
+    "Choices": [
+      {"Id": "A", "Text": "Düşman nakliye ve ticaret gemilerine akın.", "Reply": "Âlâ. Gece çıkıyoruz; fenerler sönük, telsiz kapalı.", "IsAlternate": false, "Unlocks": "C18_CatalcaVeEdirne.hamidiye_raids", "Effects": [{"Stat": "ConvoyDisruption", "Value": 12}, {"Stat": "NavalReadiness", "Value": -8}, {"Stat": "WarSupport", "Value": 4}]},
+      {"Id": "B", "Text": "Önce kömür ve kazan bakımı; tarafsız limanlarda ikmal ayarlayalım.", "Reply": "Sabırlı kaptan, gemisini eve getirir.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "NavalReadiness", "Value": 10}, {"Stat": "WarSupport", "Value": -2}]},
+      {"Id": "C", "Text": "Arnavutluk kıyısındaki düşman çıkarma iskelelerini topa tutalım.", "Reply": "Riskli; ama Rumeli’de kalan askerimiz bayrağımızı görsün.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "NavalReadiness", "Value": -12}, {"Stat": "Morale", "Value": 6}]}
+    ],
+    "HistoricalNote": "1918’de Bahriye Nazırı olarak Mondros Mütarekesi’ni imzaladı; 1922–1923’te başvekillik yaptı. Bu görevlerdeki modeli ayrı varyanttır."
+  },
+  {
+    "Name": "NPC22_CevatPasa",
+    "FullName": "Cevat Paşa (Çobanlı)",
+    "Title": "Çanakkale Müstahkem Mevki Kumandanı",
+    "Era": "Era4",
+    "Chapters": ["C19_Canakkale"],
+    "ActiveFrom": 1914, "ActiveTo": 1915,
+    "InteractKey": "R",
+    "Location": "Kilitbahir – Rumeli Mecidiye tabyası gerisi, batarya denetimi; Çanakkale karargâhı",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kalpak (1909 sonrası subay başlığı) veya kabalak",
+      "Clothing": "Haki sahra üniforması, kırmızı yakalıklı general işareti, çizme, dürbün kayışı",
+      "FacialHair": "Burma bıyık",
+      "Props": ["Boğaz mayın hatları krokisi", "Menzil cetveli", "Sahra telefonu"],
+      "Forbidden": ["Fes ve lacivert setre (1915’te sahra kıyafeti hakidir)", "Çelik miğfer"],
+      "ArtRefNote": "1915 Çanakkale fotoğrafları."
+    },
+    "Personality": "Sakin, tertipli, topçusuna güvenen; övgüyü neferine bırakan.",
+    "Greeting": "Hoş geldiniz. Sesinizi biraz yükseltin; dünkü bombardımandan beri kulaklarım uğulduyor.",
+    "Prompt": "Ağır toplarımızın menzili düşmanınkinden kısa, cephanemiz sayılıdır. Onlar uzaktan döver; biz yaklaşmalarını bekleriz. Boğaz’ı asıl kapatan mayındır, bataryalar mayını korur. Elimizdeki son mayınlar için bir teklif var.",
+    "Choices": [
+      {"Id": "A", "Text": "Nusret, Erenköy Koyu’na kıyıya paralel bir hat döksün.", "Reply": "Düşman zırhlıları dönüşlerini orada yapıyor. Karanlıkta, ses etmeden. Allah muvaffak etsin.", "IsAlternate": false, "Unlocks": "C19_Canakkale.fortify", "Effects": [{"Stat": "FortLevel", "Value": 2}, {"Stat": "DiscoveryRisk", "Value": 10}, {"Stat": "WarSupport", "Value": 5}]},
+      {"Id": "B", "Text": "Ağır top cephanesini saklayalım; yalnız kesin menzilde ateş.", "Reply": "Topçu için en zor emir budur: vurulurken beklemek. Vereceğim.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Eq_Artillery", "Value": 120}, {"Stat": "Morale", "Value": -4}, {"Stat": "Organization", "Value": 6}]},
+      {"Id": "C", "Text": "Seyyar obüsleri ve sahte bataryaları çoğaltalım.", "Reply": "Soba borusundan top… Düşman cephanesini boruya harcasın, ne âlâ.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Treasury", "Value": -10}, {"Stat": "FortLevel", "Value": 1}, {"Stat": "Manpower", "Value": 150}]}
+    ],
+    "HistoricalNote": "“18 Mart Kahramanı” diye anılır. Millî Mücadele’de Elcezire Cephesi kumandanlığı yaptı."
+  },
+  {
+    "Name": "NPC23_HalilPasa",
+    "FullName": "Halil Paşa (Kut)",
+    "Title": "Irak Ordusu (6. Ordu) Kumandanı",
+    "Era": "Era4",
+    "Chapters": ["C20_UzakCepheler"],
+    "ActiveFrom": 1915, "ActiveTo": 1918,
+    "InteractKey": "R",
+    "Location": "Kut’ül-Amâre önü – Dicle kıyısındaki karargâh çadırı, siper hattı denetimi",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kalpak; sıcakta kabalak (Enveriye)",
+      "Clothing": "Açık haki yazlık sahra üniforması, general yakalığı, çizme",
+      "FacialHair": "İnce burma bıyık; otuzlu yaşların ortasında, genç",
+      "Props": ["Dicle nehir krokisi", "Dürbün", "Teslim şartları müsveddesi"],
+      "Forbidden": ["Fes", "Yaşlı paşa modeli"],
+      "ArtRefNote": "Nisan 1916 teslim görüşmesi fotoğrafları."
+    },
+    "Personality": "Enver Paşa’nın amcası; genç, sert, atak ve tartışmalı bir kumandan.",
+    "Greeting": "Gel. Nehre bak: su yükseliyor, İngiliz’in ümidi alçalıyor.",
+    "Prompt": "Kuşatma yalnız mevziyi değil, nehir yolunu ve erzak hesabını da ister. İçeride on üç bin kişi aç. Kumandanları para teklif ediyor; ben kılıç istiyorum. Lâkin teslim alınan esirin iaşesi ve sevki de bizim mesuliyetimizdir.",
+    "Choices": [
+      {"Id": "A", "Text": "Kayıtsız şartsız teslim; esirler için nakliye ve iaşe düzeni kuralım.", "Reply": "Menzil zayıf, yol uzun. Düzeni sen kuracaksın; ben tarihe karşı mesulüm.", "IsAlternate": true, "Unlocks": "C20_UzakCepheler.kut_supply", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "PP", "Value": 10}, {"Stat": "Supply", "Value": -8}, {"Stat": "ForeignPressure", "Value": -10}]},
+      {"Id": "B", "Text": "Nehri kapalı tutup kurtarma kuvvetini Felâhiye’de karşılayalım.", "Reply": "Evvela yardıma geleni ezeriz; içerideki kendiliğinden düşer.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 6}, {"Stat": "Manpower", "Value": -100}, {"Stat": "DelayDays", "Value": 20}]},
+      {"Id": "C", "Text": "Sıhhiyeye öncelik: kendi yaralımız ve salgın için hastane.", "Reply": "Tifüs mareşali bile aldı. Haklısın; yap.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Stability", "Value": 5}, {"Stat": "Treasury", "Value": -15}, {"Stat": "Manpower", "Value": 200}]}
+    ],
+    "HistoricalNote": "Tarihte Kut esirlerinin büyük bölümü yürüyüş ve esarette öldü; A seçeneğindeki “düzenli sevk” oyuncuya tanınan alternatif bir sorumluluktur. Halil Paşa’nın 1915 olaylarındaki rolü ağır biçimde tartışmalıdır; karakter kahramanlaştırılmadan sunulmalı ve yayın öncesi tarih danışmanı incelemesinden geçmelidir."
+  },
+  {
+    "Name": "NPC24_FahreddinPasa",
+    "FullName": "Fahreddin Paşa (Ömer Fahrettin Türkkan)",
+    "Title": "Hicaz Kuvve-i Seferiyesi Kumandanı, Medine Müdafii",
+    "Era": "Era4",
+    "Chapters": ["C20_UzakCepheler"],
+    "ActiveFrom": 1916, "ActiveTo": 1919,
+    "InteractKey": "T",
+    "Location": "Medine – Hicaz Demiryolu istasyonu peronu; kale karargâhı",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kalpak; sahada kabalak",
+      "Clothing": "Haki sahra üniforması, solmuş ve yamalı; general yakalığı, toz içinde çizme",
+      "FacialHair": "Kır, kısa sakal ve bıyık",
+      "Props": ["İaşe defteri", "Demiryolu onarım raporu", "Tespih"],
+      "Forbidden": ["Fes ve lacivert setre", "Bol nişanlı tören üniforması"],
+      "ArtRefNote": "1917–1919 Medine fotoğrafları."
+    },
+    "Personality": "Dindar, inatçı, askeriyle aynı yokluğu paylaşan; emre karşı vicdanını tartan.",
+    "Greeting": "Hoş geldin evlâdım. Bugün tayında hurma var; çekirge de var, alışırsan fena değil.",
+    "Prompt": "Demiryolu kesildikçe Medine’nin iaşesi daralır; emirler ise değişen hükûmetlerle gelir. Mütareke olmuş, teslim ol derler. Garnizonun canını, mukaddes beldenin emniyetini ve verilen emri birlikte tartmak gerekir.",
+    "Choices": [
+      {"Id": "A", "Text": "Emre uyalım: düzenli tahliye ve teslim hazırlığı.", "Reply": "Emir emirdir… Ağır gelir, ama asker aç. Hazırlığı sen yap, ben son gün gelirim.", "IsAlternate": true, "Unlocks": "C20_UzakCepheler.medina_evacuate", "Effects": [{"Stat": "Manpower", "Value": 250}, {"Stat": "Supply", "Value": -3}, {"Stat": "PP", "Value": -15}]},
+      {"Id": "B", "Text": "Müdafaaya devam; hattı onarıp kervanla iaşe getirelim.", "Reply": "Bu sancağı ben kendi elimle indirmem.", "IsAlternate": false, "Unlocks": "C20_UzakCepheler.medina_resist", "Effects": [{"Stat": "WarSupport", "Value": 6}, {"Stat": "Supply", "Value": 8}, {"Stat": "Manpower", "Value": -180}]},
+      {"Id": "C", "Text": "Sivil ahaliyi ve hastaları trenle Şam’a sevk edelim.", "Reply": "Evvelce bir kısmını yolladık. Kalanlar için de koridor aç; asker kalır.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Stability", "Value": 8}, {"Stat": "Supply", "Value": 6}, {"Stat": "Manpower", "Value": -50}]}
+    ],
+    "HistoricalNote": "Medine’deki kutsal emanetleri 1917’de İstanbul’a gönderdi. Ocak 1919’da kendi subaylarınca ikna edilerek teslim oldu; Malta’ya sürüldü."
+  },
+  {
+    "Name": "NPC25_NuriPasa",
+    "FullName": "Nuri Paşa (Nuri Killigil)",
+    "Title": "Kafkas İslâm Ordusu Kumandanı (Fahri Ferik)",
+    "Era": "Era4",
+    "Chapters": ["C20_UzakCepheler"],
+    "ActiveFrom": 1918, "ActiveTo": 1918,
+    "InteractKey": "R",
+    "Location": "Gence karargâhı; Bakü’yü gören sırtlar",
+    "IsHistoricalPerson": true,
+    "Appearance": {
+      "Headwear": "Kalpak",
+      "Clothing": "Haki sahra üniforması, general yakalığı; yirmi dokuz yaşında, çok genç",
+      "FacialHair": "İnce bıyık",
+      "Props": ["Bakü petrol sahaları haritası", "Dürbün"],
+      "Forbidden": ["Sivil fabrikatör kıyafeti (o kimliği 1930’lara aittir)", "İmalat-ı Harbiye sahnelerinde kullanım"],
+      "ArtRefNote": "1918 Gence ve Bakü fotoğrafları."
+    },
+    "Personality": "Enver Paşa’nın kardeşi; hırslı, enerjik, siyasi hedefleri askerî imkânın önüne koymaya meyilli.",
+    "Greeting": "Tam vaktinde geldin. Şimendifer Gence’ye kadar bizim; ötesi tüfekle açılacak.",
+    "Prompt": "Elimde bir fırka ile yerli gönüllüler var; Bakü’de İngiliz ve mevzilenmiş kuvvetler. Filistin cephesi ise yardım diye inliyor. İstanbul bir şey söyler, Almanlar başka. Yürüyelim mi?",
+    "Choices": [
+      {"Id": "A", "Text": "Bakü’ye yürüyelim; fakat şehre girişte sivil ahalinin emniyeti için sıkı nizam koyalım.", "Reply": "Nizam… Evet. İnzibat müfrezesini sen tertip et.", "IsAlternate": true, "Unlocks": "", "Effects": [{"Stat": "WarSupport", "Value": 8}, {"Stat": "Manpower", "Value": -300}, {"Stat": "Supply", "Value": -10}, {"Stat": "CivilianCasualtyRisk", "Value": -20}]},
+      {"Id": "B", "Text": "Bu fırkayı Filistin cephesine sevk edelim.", "Reply": "Ağabeyim bunu duymak istemez. Sen de bunu bana söylemedin.", "IsAlternate": true, "Unlocks": "", "Effects": [{"Stat": "PP", "Value": -30}, {"Stat": "Organization", "Value": 6}, {"Stat": "Supply", "Value": 8}]},
+      {"Id": "C", "Text": "Gence–Batum demiryolunu ve petrol sevkini emniyete alıp bekleyelim.", "Reply": "Beklemek… Mütareke gelirse hepsi boşa gider. Ama hat lâzım, doğru.", "IsAlternate": false, "Unlocks": "", "Effects": [{"Stat": "Supply", "Value": 12}, {"Stat": "FactoryEfficiency", "Value": 3}, {"Stat": "WarSupport", "Value": -3}]}
+    ],
+    "HistoricalNote": "Bakü 15 Eylül 1918’de alındı; şehrin el değiştirdiği 1918 yılında Mart ve Eylül aylarında Müslüman ve Ermeni sivillere yönelik katliamlar yaşandı. Bu bağlam oyunda yok sayılmamalı; A seçeneği bu nedenle bir sorumluluk kararıdır. Nuri Killigil’in silah fabrikası (Zeytinburnu/Sütlüce) 1930’lara aittir ve bu oyunun zaman aralığının dışındadır."
+  },
+  {
+    "Name": "NPC26_ImalatiHarbiyeUstabasi",
+    "FullName": "İmalat-ı Harbiye Ustabaşısı (adı verilmeyen temsilî karakter)",
+    "Title": "Tophane tüfek tamirhanesi ustabaşısı",
+    "Era": "Era4",
+    "Chapters": ["C21_ImalatiHarbiye"],
+    "ActiveFrom": 1919, "ActiveTo": 1922,
+    "InteractKey": "E",
+    "Location": "İşgal altındaki İstanbul – Tophane arka sokağı, gece; atölyenin kömürlük kapısı",
+    "IsHistoricalPerson": false,
+    "Appearance": {
+      "Headwear": "Yıpranmış fes; dışarıda kasket değil, kalıpsız fes veya kalpak",
+      "Clothing": "Yağlı iş önlüğü, yelek, kolları sıvalı mintan; ceketinin altında gizli bir Mavzer sürgüsü",
+      "FacialHair": "Kır bıyık, birkaç günlük sakal",
+      "Props": ["Gaz lambası", "Tüfek mekanizma parçaları sarılı bez bohça", "Sahte irsaliye", "Mengene ve eğe"],
+      "Forbidden": ["Üniforma", "Gerçek bir kişinin adı veya yüzü"],
+      "ArtRefNote": "Gerçek bir şahıs DEĞİLDİR; Milli Mücadele’de silah kaçıran askerî fabrika ustalarını temsil eden kompozit karakterdir. Belgelenmiş bir isim bulunursa (ATASE/MKE kaynakları) bu kayıt onunla değiştirilmelidir."
+    },
+    "Personality": "Sessiz, usta, korkusunu espriyle bastıran bir İstanbul zanaatkârı.",
+    "Greeting": "Şşt! Kapıyı ört beyim. Devriye on dakikada bir geçiyor.",
+    "Prompt": "Depoda kamaları sökülmüş elli top, üç yüz sandık fişek var. Kamalar bende; nerede olduğunu Azrail’e bile söylemem. Tezgâhları da söküp götürebiliriz, ama sayımda eksik çıkarsa hepimizi asarlar. Mavna Sirkeci’de bekliyor. Ne yüklüyoruz?",
+    "Choices": [
+      {"Id": "A", "Text": "Top kamaları ve fişek: cephe bugün bunu bekliyor.", "Reply": "Kamaları kömür çuvalına koyarım. İnebolu’da kayıkçılara “kömür ağır” deyin, anlarlar.", "IsAlternate": false, "Unlocks": "C21_ImalatiHarbiye.covert_shipments", "Effects": [{"Stat": "Eq_Artillery", "Value": 50}, {"Stat": "Eq_Infantry", "Value": 220}, {"Stat": "DiscoveryRisk", "Value": 15}]},
+      {"Id": "B", "Text": "Tezgâhları ve kalıpları parça parça kaçıralım; Ankara kendi fişeğini yapsın.", "Reply": "Uzun iş, tehlikeli iş. Ama balık vermek değil, olta götürmek bu. Varım.", "IsAlternate": false, "Unlocks": "C21_ImalatiHarbiye.anatolian_workshops", "Effects": [{"Stat": "FactoryEfficiency", "Value": 10}, {"Stat": "Eq_Infantry", "Value": 60}, {"Stat": "DiscoveryRisk", "Value": 25}, {"Stat": "DelayDays", "Value": 45}]},
+      {"Id": "C", "Text": "Önce ustaları ve ailelerini geçirelim; sen de git.", "Reply": "Ben son mavnayla gelirim beyim. Bu dükkânın anahtarı bende; kapıyı kapatan da ben olacağım.", "IsAlternate": false, "Unlocks": "C21_ImalatiHarbiye.evacuate_workers", "Effects": [{"Stat": "Manpower", "Value": 80}, {"Stat": "Output", "Value": -5}, {"Stat": "DiscoveryRisk", "Value": -10}]}
+    ],
+    "HistoricalNote": "Top kamalarının sökülüp saklanması ve sonradan Anadolu’ya kaçırılması Milli Mücadele hatıratında sıkça geçen gerçek bir uygulamadır; buradaki rakamlar oyun değeridir."
+  }
+]
